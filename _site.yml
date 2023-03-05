@@ -1,18 +1,18 @@
-name: "Investor History"
+name: "Nick Anderson"
 navbar:
-  title: "Investor History"
+  title: "Nick Anderson"
   left:
     - text: "Home"
       href: index.html
-    - text: "Investor History"
-      href: ih-body.html
+    - text: "Nick Anderson"
+      href: na-body.html
     - text: "Data"
-      href: ih-data.html
+      href: na-data.html
     - text: "Bibliography"
-      href: ih-bibliography.html
+      href: na-bibliography.html
     - text: "About"
-      href: ih-about.html
+      href: na-about.html
     - text: "Contact"
-      href: ih-contact.html
+      href: na-contact.html
       
 output_dir: "docs"
