@@ -1,8 +1,0 @@
----
-title: "Bibliography"
-output: html_document
----
-
-### R and R-Studio
-
-asd

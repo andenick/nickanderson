@@ -3,6 +3,4 @@ title: "About"
 output: html_document
 ---
 
-### R and R-Studio
-
-asd
+I'll write a real about when I've actually contributed to the website

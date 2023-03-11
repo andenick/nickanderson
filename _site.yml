@@ -4,12 +4,12 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Nick Anderson"
-      href: na-body.html
+    - text: "Economic History"
+      href: na-economichistory.html
+    - text: "Investing"
+      href: na-investing.html
     - text: "Data"
       href: na-data.html
-    - text: "Bibliography"
-      href: na-bibliography.html
     - text: "About"
       href: na-about.html
     - text: "Contact"

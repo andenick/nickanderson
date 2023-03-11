@@ -1,8 +1,6 @@
 ---
-title: "Data"
+title: "Contact"
 output: html_document
 ---
 
-### R and R-Studio
-
-asd
+Google Form? idk
