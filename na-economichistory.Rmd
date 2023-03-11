@@ -15,6 +15,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
 # Tax Revenue Cyclicality: The U.S. Example
+
 By Nick Anderson
 Dated 2022.01.07
 
@@ -32,28 +33,10 @@ This paper investigates the correlation between cyclicality and federal tax reve
 
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
 
-##Abstract
-asd
-
-###Abstract
-asd
-
-## Abstract
-asd
-
-### Abstract
-asd
-
-
-## Second level header
-### Third Level Header
-#Project 2
-
-
-
-I'm writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom
 
 # Adding R stuff
+
+I'm writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom
 
 So far this is just a blog where you can write in plain text and serve your writing to a webpage. One of the main purposes of this lab journal is to record your progress learning R. The reason I am asking you to use this process is because you can both make a website, and a lab journal, and learn R all in R-studio. This makes everything really convenient and in the sam place. 
 

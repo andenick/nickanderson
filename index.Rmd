@@ -19,19 +19,11 @@ output: html_document
 
 # **This is Nick Anderson's website**
 
-Story
-
-## Hapworth 16, 1924
-
-A long letter home from Camp Simon Hapworth by a young, precocious Seymour Glass. This is the story that will be made into a book at some time. It is the only Glass story not yet available in book form. It is very reminiscent of Seymour: An Introduction.
-
-I will write for us both, I believe, as Buddy is engaged elsewhere for an indefinite period of time. Surely sixty to eighty per cent of the time, to my eternal amusement and sorrow, that magnificent, elusive, comical lad is engaged elsewhere! As you must know in your hearts and bowels, we miss you all like sheer hell. Unfortunately, I am far from above hoping the case is vice versa.
-
+There is nothing interesting on this page. Look at the other pages on this site to see my projects
 
 </div>
 <div class="col-sm-6">
-asdasd
-#asd
+I think this is all open source and you can remake it all yourself but this page has my name on it and for that reason it belongs to me. If another Nick Anderson were to challenge me for spiritual ownership of this site, I may accept the challenge, but legally the domain is my property. There isn't very much of an argument. But feel free to take my code and data and do whatever you want with it. 
 
 </a>
 </div>
