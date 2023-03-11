@@ -14,6 +14,19 @@ output:
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
+```{r, include = F, echo = F}
+install.packages('readxl')
+install.packages('tidyverse')
+library('readxl')
+
+#now I am going to read the excel sheet I need into the RMarkdown for graphing
+read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
+
+
+
+```
+
+
 # Tax Revenue Cyclicality: The U.S. Example
 
 By Nick Anderson
@@ -29,6 +42,9 @@ This paper investigates the correlation between cyclicality and federal tax reve
   The complication in the above policy prescription lies in the nature of the income tax. By the publication of Keynes’ General Theory in 1936, the income tax was a vital funding mechanism for the United States and United Kingdom, among many other countries. Because income taxes are earned by the government only when taxable incomes are earned, income taxes are inherently procyclical. This paper grew out of the author’s attempt to test the strength of the income tax’s cyclicality in U.S. history. 
   The starkest example of the income tax’s cyclicality occurred in the Great Depression. As unemployment increased to as high as 24% in 1933, U.S. income tax revenues fell over 60% (Figure 1). In the years of greatest revenue need, income tax revenues almost disappeared. 
 
+```{r, include = F, echo = F}
+
+```
 
 
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
