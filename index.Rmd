@@ -12,8 +12,13 @@ output: html_document
     background-color: #640000 !important;
 }
 
+.navbar .navbar-brand, .navbar .navbar-nav .nav-link {
+  color: white;
+}
+
 #getting-started img {
   margin-right: 10px;
+  margin-left: 5px;
 }
 
 </style>
