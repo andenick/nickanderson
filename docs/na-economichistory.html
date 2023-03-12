@@ -387,31 +387,33 @@ example of the income tax’s cyclicality occurred in the Great
 Depression. As unemployment increased to as high as 24% in 1933, U.S.
 income tax revenues fell over 60% (Figure 1). In the years of greatest
 revenue need, income tax revenues almost disappeared.</p>
-<p>2018 | 7 | 23 Last compiled: 2023-03-11</p>
+<p><strong>Figure 1: U.S. Federal Government Revenue from 1927-1941,
+with Unemployment</strong></p>
+<p><img src="na-economichistory_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
+</div>
+<div id="geom_lineaesyunemployment-rate-colorblue"
+class="section level1">
+<h1>geom_line(aes(y=‘Unemployment Rate’, color=‘blue’)) +</h1>
+<p>UnemploymentRate &lt;- IncomeTaxData %&gt;% select(Year,‘Unemployment
+Rate’)</p>
+<pre><code>
+</code></pre>
+<p>Source:</p>
+<p>2018 | 7 | 23 Last compiled: 2023-03-12</p>
 </div>
 <div id="adding-r-stuff" class="section level1">
 <h1>Adding R stuff</h1>
-<p>I’m writing this tutorial going from the top down. And, this is how
-it will be printed. So, notice the second post is second in the list. If
-you want your most recent post to be at the top, then make a new post
-starting at the top. If you want the oldest first, do, then keep adding
-to the bottom</p>
-<p>So far this is just a blog where you can write in plain text and
-serve your writing to a webpage. One of the main purposes of this lab
-journal is to record your progress learning R. The reason I am asking
-you to use this process is because you can both make a website, and a
-lab journal, and learn R all in R-studio. This makes everything really
-convenient and in the sam place.</p>
-<p>So, let’s say you are learning how to make a histogram in R. For
-example, maybe you want to sample 100 numbers from a normal distribution
-with mean = 0, and standard deviation =1, and then you want to plot a
-histogram. You can do this right here by using an r code block, like
-this:</p>
 <pre class="r"><code>samples &lt;- rnorm(100, mean=0, sd=1)
 hist(samples)</code></pre>
-<p><img src="na-economichistory_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>2018 | 7 | 23 Last compiled: 2023-03-11</p>
+<p><img src="na-economichistory_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>dates &lt;- c(&quot;20040101&quot;,&quot;20050101&quot;,&quot;20060101&quot;)
+dates.f &lt;- strptime(dates,format=&quot;%Y%m%d&quot;)
+
+m &lt;- rbind(c(0.2,0.5,0.15,0.1,0.05),c(0.5,0.1,0.1,0.2,0.1),c(0.2,0.2,0.2,0.2,0.2))
+m &lt;- cbind(dates.f,as.data.frame(m))</code></pre>
+<p>#IRS Data</p>
+<p>2018 | 7 | 23 Last compiled: 2023-03-12</p>
 </div>
 
 

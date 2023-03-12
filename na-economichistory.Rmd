@@ -15,8 +15,8 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
 ```{r, include = F, echo = F}
-install.packages('readxl')
-install.packages('tidyverse')
+require('readxl')
+require('tidyverse')
 library(readxl)
 library(tidyverse)
 remove(list = ls())
@@ -47,7 +47,7 @@ This paper investigates the correlation between cyclicality and federal tax reve
 
 **Figure 1: U.S. Federal Government Revenue from 1927-1941, with Unemployment**
 
-```{r}
+```{r, echo = F}
 
 #GDP <- 
 IncomeTaxvs <- IncomeTaxData %>%
@@ -124,12 +124,6 @@ Source:
 
 
 # Adding R stuff
-
-I'm writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom
-
-So far this is just a blog where you can write in plain text and serve your writing to a webpage. One of the main purposes of this lab journal is to record your progress learning R. The reason I am asking you to use this process is because you can both make a website, and a lab journal, and learn R all in R-studio. This makes everything really convenient and in the sam place. 
-
-So, let's say you are learning how to make a histogram in R. For example, maybe you want to sample 100 numbers from a normal distribution with mean = 0, and standard deviation =1, and then you want to plot a histogram. You can do this right here by using an r code block, like this:
 
 ```{r}
 samples <- rnorm(100, mean=0, sd=1)
