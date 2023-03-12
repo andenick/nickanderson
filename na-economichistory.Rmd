@@ -61,17 +61,17 @@ IncomeTaxvs <- IncomeTaxData %>%
                       "date" = "Year")
 
 IncomeTaxvs1 <- IncomeTaxData %>%
-               select(Year,'Income Tax') %>% 
-               mutate(id='Income Tax') %>%
-               rename("type" = "id",
-                      "value" = "Income Tax",
-                      "date" = "Year")
-
-IncomeTaxvs2 <- IncomeTaxData %>%
                select(Year,'Not Income Tax') %>% 
                mutate(id='Not Income Tax') %>%
                rename("type" = "id",
                       "value" = "Not Income Tax",
+                      "date" = "Year")
+
+IncomeTaxvs2 <- IncomeTaxData %>%
+               select(Year,'Income Tax') %>% 
+               mutate(id='Income Tax') %>%
+               rename("type" = "id",
+                      "value" = "Income Tax",
                       "date" = "Year")
 
 IncomeTaxvs3 <- IncomeTaxData %>%
@@ -92,16 +92,20 @@ ITvsBar <- ITvs %>%
 #str(IncomeTaxvs)
 
 ggIncomeTaxData <- ggplot(ITvsBar, aes(x=date,y=value,fill=type)) +
-                   geom_col(stat='identity') +
-                   scale_y_continuous(labels=scales::dollar_format()) +
+                   geom_col() +
+                   scale_y_continuous(labels=scales::dollar_format(),
+                                      name="Billions of Dollars",
+                                      ) +
                    ylab('Billions of Dollars') +
                    ggtitle("Figure 1: U.S. Federal Government Revenue from 1927-1941, 
                            with Unemployment Rate") +
-                   guides(fill=guide_legend(title='Revenue Source'))
-                   
+                   guides(fill=guide_legend(title='Revenue Source')) +
+                   scale_fill_manual(values=c("#640000", "#00B0F0")) 
+
 
 ggIncomeTaxData
 
+#sec.axis = sec_axis(~1,name="Second Axis")
 
 # geom_line(aes(y='Unemployment Rate', color='blue')) +
 #nemploymentRate <- IncomeTaxData %>%
