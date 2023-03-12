@@ -19,9 +19,13 @@ install.packages('readxl')
 install.packages('tidyverse')
 library(readxl)
 library(tidyverse)
-
+remove(list = ls())
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
+
+IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
+IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
+
 
 ```
 
@@ -44,14 +48,77 @@ This paper investigates the correlation between cyclicality and federal tax reve
 **Figure 1: U.S. Federal Government Revenue from 1927-1941, with Unemployment**
 
 ```{r, include = F, echo = F}
-ggIncomeTaxData <- ggplot(IncomeTaxData, aes(x=Year)) + 
-                   geom_line(aes(y='Unemployment Rate'), color='blue') +
-                   ylab("Unemployment Rate %, others $B") 
+
+#GDP <- 
+IncomeTaxvs <- IncomeTaxData %>%
+               select(Year,'Total Receipts') %>% 
+               mutate(id='Total Receipts') %>%
+               rename("type" = "id",
+                      "value" = "Total Receipts",
+                      "date" = "Year")
+
+IncomeTaxvs1 <- IncomeTaxData %>%
+               select(Year,'Income Tax') %>% 
+               mutate(id='Income Tax') %>%
+               rename("type" = "id",
+                      "value" = "Income Tax",
+                      "date" = "Year")
+
+IncomeTaxvs2 <- IncomeTaxData %>%
+               select(Year,'Not Income Tax') %>% 
+               mutate(id='Not Income Tax') %>%
+               rename("type" = "id",
+                      "value" = "Not Income Tax",
+                      "date" = "Year")
+
+IncomeTaxvs3 <- IncomeTaxData %>%
+               select(Year,'Unemployment Rate') %>% 
+               mutate(id='Unemployment Rate') %>%
+               rename("type" = "id",
+                      "value" = "Unemployment Rate",
+                      "date" = "Year")
+
+ITvs <- rbind(IncomeTaxvs,IncomeTaxvs1) 
+ITvs <- rbind(ITvs,IncomeTaxvs2)
+ITvs <- rbind(ITvs,IncomeTaxvs3)
+ITvsBar <- ITvs %>%
+           filter(type != 'Total Receipts') %>%
+           filter(type != 'Unemployment Rate') %>%
+           mutate(value = value/1000000000)
+
+#str(IncomeTaxvs)
+
+ggIncomeTaxData <- ggplot(ITvsBar, aes(x=date,y=value,fill=type)) +
+                   geom_col(stat='identity') +
+                   scale_y_continuous(labels=scales::dollar_format()) +
+                   ylab('Billions of Dollars') +
+                   ggtitle("Figure 1: U.S. Federal Government Revenue from 1927-1941, 
+                           with Unemployment Rate")
 
 ggIncomeTaxData
 
+
+
 ```
 
+
+
+
+# geom_line(aes(y='Unemployment Rate', color='blue')) +
+
+
+
+
+
+UnemploymentRate <- IncomeTaxData %>%
+                 select(Year,'Unemployment Rate')
+
+
+```
+
+
+```
+Source: 
 
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
 
@@ -69,7 +136,20 @@ samples <- rnorm(100, mean=0, sd=1)
 hist(samples)
 ```
 
+```{r}
+dates <- c("20040101","20050101","20060101")
+dates.f <- strptime(dates,format="%Y%m%d")
+
+m <- rbind(c(0.2,0.5,0.15,0.1,0.05),c(0.5,0.1,0.1,0.2,0.1),c(0.2,0.2,0.2,0.2,0.2))
+m <- cbind(dates.f,as.data.frame(m))
+```
+
+```{r}
+
+```
+
+
 #IRS Data
-#
+
 
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
