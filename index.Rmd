@@ -1,6 +1,7 @@
 ---
 title: "Nick Anderson"
 output: html_document
+theme: null
 ---
 
 # **This is Nick Anderson's website**

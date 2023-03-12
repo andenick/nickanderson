@@ -8,7 +8,7 @@ output:
     number_sections: false
     toc_depth: 1
     #code_folding: hide
-    toc_color: red
+    theme: readable
 ---
 
 ```{r setup, include=FALSE}
@@ -26,6 +26,8 @@ IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Re
 
 IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
+
+??toc
 
 ```
 
