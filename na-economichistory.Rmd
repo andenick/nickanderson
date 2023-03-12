@@ -98,20 +98,15 @@ ggIncomeTaxData <- ggplot(ITvsBar, aes(x=date,y=value,fill=type)) +
 ggIncomeTaxData
 
 
-
+# geom_line(aes(y='Unemployment Rate', color='blue')) +
+#nemploymentRate <- IncomeTaxData %>%
+#                select(Year,'Unemployment Rate')
 ```
 
 
 
 
-# geom_line(aes(y='Unemployment Rate', color='blue')) +
 
-
-
-
-
-UnemploymentRate <- IncomeTaxData %>%
-                 select(Year,'Unemployment Rate')
 
 
 ```
