@@ -33,6 +33,7 @@ IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
 # Tax Revenue Cyclicality: The U.S. Example
 
 By Nick Anderson
+
 Dated 2022.01.07
 
 ### Abstract
