@@ -47,7 +47,7 @@ This paper investigates the correlation between cyclicality and federal tax reve
 
 **Figure 1: U.S. Federal Government Revenue from 1927-1941, with Unemployment**
 
-```{r, include = F, echo = F}
+```{r}
 
 #GDP <- 
 IncomeTaxvs <- IncomeTaxData %>%
