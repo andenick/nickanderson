@@ -8,6 +8,7 @@ output:
     number_sections: false
     toc_depth: 1
     #code_folding: hide
+    toc_color: red
 ---
 
 ```{r setup, include=FALSE}
@@ -25,7 +26,6 @@ IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Re
 
 IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
-
 
 ```
 
@@ -94,7 +94,9 @@ ggIncomeTaxData <- ggplot(ITvsBar, aes(x=date,y=value,fill=type)) +
                    scale_y_continuous(labels=scales::dollar_format()) +
                    ylab('Billions of Dollars') +
                    ggtitle("Figure 1: U.S. Federal Government Revenue from 1927-1941, 
-                           with Unemployment Rate")
+                           with Unemployment Rate") +
+                   guides(fill=guide_legend(title='Revenue Source'))
+                   
 
 ggIncomeTaxData
 
@@ -156,6 +158,23 @@ hist(samples)
 #getting-started img {
   margin-right: 10px;
   margin-left: 5px;
+}
+
+
+#TOC {
+   
+}
+
+h1.title {
+  color: #006400;
+}
+
+h1 {
+  color: #640000;
+}
+
+h2 {
+  color: #F4B5BD;
 }
 
 
