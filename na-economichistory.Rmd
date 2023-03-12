@@ -8,7 +8,6 @@ output:
     number_sections: false
     toc_depth: 1
     #code_folding: hide
-    theme: readable
 ---
 
 ```{r setup, include=FALSE}
