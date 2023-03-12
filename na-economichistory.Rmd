@@ -104,40 +104,16 @@ ggIncomeTaxData
 #                select(Year,'Unemployment Rate')
 ```
 
-
-
-
-
-
-
-```
-
-
-```
 Source: 
 
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
 
-
 # Adding R stuff
 
-```{r}
+```{r, echo = F}
 samples <- rnorm(100, mean=0, sd=1)
 hist(samples)
 ```
-
-```{r}
-dates <- c("20040101","20050101","20060101")
-dates.f <- strptime(dates,format="%Y%m%d")
-
-m <- rbind(c(0.2,0.5,0.15,0.1,0.05),c(0.5,0.1,0.1,0.2,0.1),c(0.2,0.2,0.2,0.2,0.2))
-m <- cbind(dates.f,as.data.frame(m))
-```
-
-```{r}
-
-```
-
 
 #IRS Data
 

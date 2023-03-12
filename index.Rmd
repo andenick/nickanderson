@@ -8,6 +8,10 @@ output: html_document
   display: none;
 }
 
+.navbar-default {
+    background-color: #640000 !important;
+}
+
 #getting-started img {
   margin-right: 10px;
 }
@@ -23,6 +27,7 @@ There is nothing interesting on this page. Look at the other pages on this site 
 
 </div>
 <div class="col-sm-6">
+
 I think this is all open source and you can remake it all yourself but this page has my name on it and for that reason it belongs to me. If another Nick Anderson were to challenge me for spiritual ownership of this site, I may accept the challenge, but legally the domain is my property. There isn't very much of an argument. But feel free to take my code and data and do whatever you want with it. 
 
 </a>
