@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -393,70 +393,46 @@ with Unemployment</strong></p>
 <p><img src="na-economichistory_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Source:</p>
 <p>2018 | 7 | 23 Last compiled: 2023-03-12</p>
+<pre class="r"><code># d &lt;- data.frame(
+#   y=c(0.1, 0.2, 0.7),
+#   cat = factor(c(&#39;No&#39;, &#39;Yes&#39;, &#39;NA&#39;), levels = c(&#39;NA&#39;, &#39;Yes&#39;, &#39;No&#39;)))
+# 
+# # Original order
+# p1 &lt;- ggplot(d, aes(x=1, y=y, fill=cat)) +
+#   geom_bar(stat=&#39;identity&#39;)
+# 
+# # Change order of rows
+# p2 &lt;- ggplot(d[c(2, 3, 1), ], aes(x=1, y=y, fill=cat)) +
+#   geom_bar(stat=&#39;identity&#39;)
+# 
+# # Change order of levels
+# d$cat2 &lt;- relevel(d$cat, &#39;Yes&#39;)
+# p3 &lt;- ggplot(d, aes(x=1, y=y, fill=cat2)) +
+#   geom_bar(stat=&#39;identity&#39;) 
+# 
+# grid.arrange(p1, p2, p3, ncol=3)</code></pre>
 </div>
 </div>
 <div id="adding-r-stuff" class="section level1">
 <h1>Adding R stuff</h1>
-<p><img src="na-economichistory_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>#IRS Data</p>
+<p><img src="na-economichistory_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="irs-data" class="section level1">
+<h1>IRS Data</h1>
 <p>2018 | 7 | 23 Last compiled: 2023-03-12</p>
 <style type="text/css">
-.title {
-  display: none;
-}
-
-.navbar-default {
-    background-color: #640000 !important;
-    
-}
-
+<p>.title { display: none; }</p>
+<p>.navbar-default { background-color: #640000 !important;</p>
+<p>}</p>
 <!-- .navbar-nav { -->
 <!--   color:white !important; -->
-
 <!-- } -->
-
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-
-.navbar-nav > .active > a { 
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-
-#getting-started img {
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-
-#TOC {
-   
-}
-
-h1.title {
-  color: #006400;
-}
-
-h1 {
-  color: #640000;
-}
-
-h2 {
-  color: #F4B5BD;
-}
-
-
-</style>
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">
-
-
+<p>.navbar .navbar-brand, .navbar .navbar-nav .nav-links { color: white;
+}</p>
+<p>.navbar-default .navbar-nav&gt;li&gt;a { color: white !important;
+font-weight: 150; }</p>
+<p>.navbar-nav &gt; .active &gt; a { background-color: #006400
+!important; font-weight: 175; }</p>
 </div>
 
 

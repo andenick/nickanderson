@@ -90,7 +90,7 @@ ITvsCol <- ITvs %>%
 
 #str(IncomeTaxvs)
 
-ITvsCol$type <- relevel()
+#ITvsCol$type <- relevel()
 
 ggIncomeTaxData <- ggplot(ITvsCol, aes(x=date,y=value,fill=type)) +
                    geom_col() +
@@ -118,24 +118,24 @@ Source:
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
 
 ```{r}
-d <- data.frame(
-  y=c(0.1, 0.2, 0.7),
-  cat = factor(c('No', 'Yes', 'NA'), levels = c('NA', 'Yes', 'No')))
-
-# Original order
-p1 <- ggplot(d, aes(x=1, y=y, fill=cat)) +
-  geom_bar(stat='identity')
-
-# Change order of rows
-p2 <- ggplot(d[c(2, 3, 1), ], aes(x=1, y=y, fill=cat)) +
-  geom_bar(stat='identity')
-
-# Change order of levels
-d$cat2 <- relevel(d$cat, 'Yes')
-p3 <- ggplot(d, aes(x=1, y=y, fill=cat2)) +
-  geom_bar(stat='identity') 
-
-grid.arrange(p1, p2, p3, ncol=3)
+# d <- data.frame(
+#   y=c(0.1, 0.2, 0.7),
+#   cat = factor(c('No', 'Yes', 'NA'), levels = c('NA', 'Yes', 'No')))
+# 
+# # Original order
+# p1 <- ggplot(d, aes(x=1, y=y, fill=cat)) +
+#   geom_bar(stat='identity')
+# 
+# # Change order of rows
+# p2 <- ggplot(d[c(2, 3, 1), ], aes(x=1, y=y, fill=cat)) +
+#   geom_bar(stat='identity')
+# 
+# # Change order of levels
+# d$cat2 <- relevel(d$cat, 'Yes')
+# p3 <- ggplot(d, aes(x=1, y=y, fill=cat2)) +
+#   geom_bar(stat='identity') 
+# 
+# grid.arrange(p1, p2, p3, ncol=3)
 ```
 
 
