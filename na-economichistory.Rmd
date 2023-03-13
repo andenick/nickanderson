@@ -101,29 +101,30 @@ IncomeTaxvs3 <- IncomeTaxvs3 %>%
                 mutate(mark=NA)
 
 
-IncomeTaxvs3$mark[1] <- IncomeTaxvs3$value[1]
-IncomeTaxvs3$mark[3] <- IncomeTaxvs3$value[3]
-IncomeTaxvs3$mark[5] <- IncomeTaxvs3$value[5]
-IncomeTaxvs3$mark[7] <- IncomeTaxvs3$value[7]
-IncomeTaxvs3$mark[9] <- IncomeTaxvs3$value[9]
-IncomeTaxvs3$mark[11] <- IncomeTaxvs3$value[11]
-IncomeTaxvs3$mark[13] <- IncomeTaxvs3$value[13]
-IncomeTaxvs3$mark[15] <- IncomeTaxvs3$value[15]
+IncomeTaxvs3$mark[1] <- paste0(as.character(IncomeTaxvs3$value[1]*100), '%')
+IncomeTaxvs3$mark[3] <- paste0(as.character(IncomeTaxvs3$value[3]*100), '%')
+IncomeTaxvs3$mark[5] <- paste0(as.character(IncomeTaxvs3$value[5]*100), '%')
+IncomeTaxvs3$mark[7] <- paste0(as.character(IncomeTaxvs3$value[7]*100), '%')
+IncomeTaxvs3$mark[9] <- paste0(as.character(IncomeTaxvs3$value[9]*100), '%')
+IncomeTaxvs3$mark[11] <- paste0(as.character(IncomeTaxvs3$value[11]*100), '%')
+IncomeTaxvs3$mark[13] <- paste0(as.character(IncomeTaxvs3$value[13]*100), '%')
+IncomeTaxvs3$mark[15] <- paste0(as.character(IncomeTaxvs3$value[15]*100), '%')
 
 #ITvsCol2 <- rbind(ITvsCol,IncomeTaxvs3)
 #str(IncomeTaxvs)
 
 #ITvsCol$type <- relevel()
 
-ggratio1 <- (max(IncomeTaxvs$value/1000000000)+1.5)/max(IncomeTaxvs3$value)
+ggratio1 <- (max(IncomeTaxvs$value/1000000000))/max(IncomeTaxvs3$value)
 
-ggIncomeTaxData <- ggplot(ITvsCol,
-                          aes(x=date,y=value,fill=type)) +
+ggIncomeTaxData <- ggplot(ITvsCol,aes(x=date,y=value,fill=type)) +
                    geom_col() +
                    scale_y_continuous(name="Billions of Dollars",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
-                                      sec.axis = sec_axis(trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxvs3$value),
+                                      sec.axis =
+                                      sec_axis(
+                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxvs3$value),
                                                           name="Unemployment",
                                                           labels = scales::label_percent()),
                                       ) +
@@ -144,45 +145,26 @@ ggIncomeTaxData <- ggplot(ITvsCol,
                              aes(y=value*ggratio1),
                              size=2,
                              ) +
-                   geom_label(data = IncomeTaxvs3,
-                           aes(y=value*ggratio1,
-                               label = mark),
-                           method = 'last.points',
-                           labels = scales::label_percent(accuracy = .001),
-                           fill = 'white')
+                   geom_label(data=IncomeTaxvs3,
+                              aes(y = value*ggratio1+.4,
+                                  label = mark,), 
+                              nudge_x = 0.35, size = 3,
+                              fill = 'gray',
+                             ) 
+                   
 
-  
-#                      geom_label(data=IncomeTaxvs3,
-#                              aes(y = value*ggratio1,
-#                                  label = mark,), 
-#                              nudge_x = 0.35, size = 4,
-#                              labels = scales::percent(4),
-#                              fill = 'grey',
-#                             ) 
-
-  # # label = round(value, .01)
 ggIncomeTaxData
 
-?geom_dl
-?scales::percent
-?geom_hline
-?geom_label
+#?geom_dl
+#?scales::percent
+#?scales::label_percent()
+#?geom_hline
+#?geom_label
 
 #panel.border = element_rect(color = "black", fill=NA, size = 3),
 # panel.grid.major.y = element_line(color = "black", size = 0.1, linetype = 2)
 
-# breaks = seq(min(ITvsCol$date),max(ITvsCol$date),by='years'),
-# c('','','','','','','')
-# min(ITvsCol$date)
-# max(ITvsCol$date) 
-# 
-# ?scale_y_continuous
 
-#sec.axis = sec_axis(~1,name="Second Axis")
-
-# geom_line(aes(y='Unemployment Rate', color='blue')) +
-#nemploymentRate <- IncomeTaxData %>%
-#                select(Year,'Unemployment Rate')
 ```
 
 Source: 
