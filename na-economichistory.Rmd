@@ -119,13 +119,13 @@ ggratio1 <- (max(IncomeTaxvs$value/1000000000))/max(IncomeTaxvs3$value)
 
 ggIncomeTaxData <- ggplot(ITvsCol,aes(x=date,y=value,fill=type)) +
                    geom_col() +
-                   scale_y_continuous(name="Billions of Dollars",
+                   scale_y_continuous(name="Dollars (in Billions)",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
                                       sec.axis =
                                       sec_axis(
                                         trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxvs3$value),
-                                                          name="Unemployment",
+                                                          name="% Unemployment Rate",
                                                           labels = scales::label_percent()),
                                       ) +
                    scale_x_continuous(name="Years of the Great Depression",
