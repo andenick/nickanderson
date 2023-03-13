@@ -30,6 +30,7 @@ library(directlabels)
 remove(list = ls())
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
+IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
 
 #IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
@@ -167,9 +168,51 @@ ggIncomeTaxData
 
 ```
 
-Source: 
+Source: Lebergott 1957 (he was with the NBER) and the BLS (My Data)LINK
 
-2018 | 7 | 23 Last compiled: `r Sys.Date()`
+The Great Depression remains the severest example of economic depression available for examination. The author emphasizes this example not as conclusive proof, but as a demonstration of income tax revenue procyclicality.
+
+The ‘business cycle’ is not easy to define, so this paper examines two aspects of cyclicality: Gross Domestic Product (as a measure of incomes) and the Unemployment Rate (as a measure of employment). The graph above replicated with Nominal GDP instead of the unemployment rate tell the similar stories from different perspectives (Figure 2). When aggregate demand contracts, the income tax contracts as well.
+
+
+```{r}
+
+ITvsCol2 <- rbind(ITvsCol,IncomeTaxData2) %>%
+            filter()
+
+ggIncomeTaxData2 <- ggplot(ITvsCol2,aes(x=date,y=value,fill=type)) +
+                   geom_col() +
+                   scale_y_continuous(name="Dollars (in Billions)",
+                                      breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
+                                      labels=scales::dollar_format(accuracy=.1),
+                                      sec.axis =
+                                      sec_axis(
+                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxvs3$value),
+                                                          name="Nominal GDP",
+                                                          labels = scales::label_percent()),
+                                      ) +
+                   scale_x_continuous(name="Years of the Great Depression",
+                                      breaks=seq(min(ITvsCol$date),max(ITvsCol$date),by=2),
+                                      ) +
+                   ggtitle("Figure 1: U.S. Federal Government Revenue from 1927-1941, 
+                           with Unemployment Rate") +
+                   guides(fill=guide_legend(title='')) +
+                   scale_fill_manual(values=c("#640000", "#00B0F0",'black')) +
+                   theme(legend.position="right",
+                         panel.grid.major = element_blank(), 
+                         panel.grid.minor = element_blank(),
+                         panel.background = element_blank(), 
+                         axis.line = element_line(colour = "black"), 
+                         ) +
+                   geom_line(data=IncomeTaxData2,
+                             aes(y=NGDP),
+                             size=2,
+                             )
+
+ggIncomeTaxData2
+
+```
+
 
 ```{r}
 # d <- data.frame(
