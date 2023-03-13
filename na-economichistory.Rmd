@@ -185,3 +185,13 @@ hist(samples)
     font-weight: 175;
 }
 
+#getting-started img {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
