@@ -192,7 +192,7 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                                       labels=scales::dollar_format(accuracy=.1),
                                       sec.axis =
                                       sec_axis(
-                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxData2$value),
+                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(ITvsCol$value),
                                                           name="Nominal GDP",
                                                           labels = scales::label_percent()),
                                       ) +
