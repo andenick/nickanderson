@@ -175,19 +175,24 @@ The Great Depression remains the severest example of economic depression availab
 The ‘business cycle’ is not easy to define, so this paper examines two aspects of cyclicality: Gross Domestic Product (as a measure of incomes) and the Unemployment Rate (as a measure of employment). The graph above replicated with Nominal GDP instead of the unemployment rate tell the similar stories from different perspectives (Figure 2). When aggregate demand contracts, the income tax contracts as well.
 
 
-```{r}
+```{r, echo = F}
 
-ITvsCol2 <- rbind(ITvsCol,IncomeTaxData2) %>%
-            filter()
+ITvsCol2 <- rbind(ITvsCol,IncomeTaxData2)
 
-ggIncomeTaxData2 <- ggplot(ITvsCol2,aes(x=date,y=value,fill=type)) +
+ITvsCol2a <- ITvsCol2 %>%
+            filter(type != 'NGDP' & type != 'Population')
+
+ITvsCol2b <- ITvsCol2 %>%
+            filter(type == 'NGDP')
+
+ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    geom_col() +
                    scale_y_continuous(name="Dollars (in Billions)",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
                                       sec.axis =
                                       sec_axis(
-                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxvs3$value),
+                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxData2$value),
                                                           name="Nominal GDP",
                                                           labels = scales::label_percent()),
                                       ) +
@@ -204,10 +209,9 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2,aes(x=date,y=value,fill=type)) +
                          panel.background = element_blank(), 
                          axis.line = element_line(colour = "black"), 
                          ) +
-                   geom_line(data=IncomeTaxData2,
-                             aes(y=NGDP),
-                             size=2,
-                             )
+                   geom_line(data=ITvsCol2b,
+                             aes(y=value),
+                             size=2, )
 
 ggIncomeTaxData2
 
