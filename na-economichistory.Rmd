@@ -42,7 +42,7 @@ IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax R
 
 # Tax Revenue Cyclicality
 
-## Tax Revenue Cyclicality: The U.S. Example 1800-2020
+## **Tax Revenue Cyclicality: The U.S. Example 1800-2020**
 
 By Nick Anderson
 
@@ -207,8 +207,8 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    scale_x_continuous(name="Years of the Great Depression",
                                       breaks=seq(min(ITvsCol$date),max(ITvsCol$date),by=2),
                                       ) +
-                   ggtitle("Figure 1: U.S. Federal Government Revenue from 1927-1941, 
-                           with Unemployment Rate") +
+                   ggtitle("Figure 2: U.S. Federal Government Revenue from 1927-1941, 
+                           with GDP") +
                    guides(fill=guide_legend(title='')) +
                    theme(legend.position="right",
                          panel.grid.major = element_blank(), 
