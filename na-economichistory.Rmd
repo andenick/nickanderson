@@ -196,6 +196,7 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    geom_line(data=ITvsCol2b,
                              aes(y=value/max(value)*max(IncomeTaxvs$value/1000000000)),
                              size=2, 
+                             color = 'green'
                              ) +
                    scale_y_continuous(name="Tax Revenue in $B",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
