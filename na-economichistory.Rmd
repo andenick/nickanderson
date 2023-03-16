@@ -144,7 +144,7 @@ ggIncomeTaxData <- ggplot(ITvsCol,aes(x=date,y=value,fill=type)) +
                          ) +
                    geom_line(data=IncomeTaxvs3,
                              aes(y=value*ggratio1),
-                             size=2,
+                             linewidth=2,
                              ) +
                    geom_label(data=IncomeTaxvs3,
                               aes(y = value*ggratio1+.4,
@@ -183,12 +183,18 @@ ITvsCol2a <- ITvsCol2 %>%
             filter(type != 'NGDP' & type != 'Population')
 
 ITvsCol2b <- ITvsCol2 %>%
-            filter(type == 'NGDP')
+             filter(type == 'NGDP') 
+
+
 
 #ITvsCol2b[1] <- ITvsCol2b[1]/10
 
 ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    geom_col() +
+                   geom_line(data=ITvsCol2b,
+                             aes(y=value/max(value)*max(IncomeTaxvs$value/1000000000)),
+                             size=2, 
+                             ) +
                    scale_y_continuous(name="Tax Revenue in $B",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
@@ -204,22 +210,75 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    ggtitle("Figure 1: U.S. Federal Government Revenue from 1927-1941, 
                            with Unemployment Rate") +
                    guides(fill=guide_legend(title='')) +
-                   scale_fill_manual(values=c("#640000", "#00B0F0",'black')) +
                    theme(legend.position="right",
                          panel.grid.major = element_blank(), 
                          panel.grid.minor = element_blank(),
                          panel.background = element_blank(), 
                          axis.line = element_line(colour = "black"), 
-                         ) +
-                   geom_line(data=ITvsCol2b,
-                             aes(y=value/max(IncomeTaxvs$value)),
-                             size=2, 
-                             color = '#00B0F0')
+                         ) + 
+                   scale_fill_discrete(breaks=c('Income Tax Revenue','Other Tax Revenue','NGDP'))
+
+?scale_fill_discrete
 
 ggIncomeTaxData2
 
 ```
 
+### Data
+
+  Data collection and cleaning proved the most difficult portion of this paper. FRED timeseries data for GDP, unemployment, and the federal budget all cut out between 1929 and 1999, requiring alternative data sources for further historical investigation. 
+  
+  Each data set is described below:  
+  
+1.	**Tax Revenue (1792-2020)**: Hungerford (2006) provides a great foundation for comprehensive datasets of US Federal Government Revenues. In a Congressional Research Service report, he compiles a dataset of Federal Revenues from 1820-2005 from three sources. Though one of these sources is unavailable to the public, the included Office of Management and Budget’s Historical Tables’ 2020 update has detailed revenue data from 1934 to 2020. There is some included data going back to 1789, but without component totals (income, excise, customs, etc.) and in some cases not annual data. For earlier data, Hungerford (2006) reached back to Lillian Doris’ The American Way in Taxation: Internal Revenue 1862-1963, which included specific data on income taxes and excise taxes from 1820-1962 but lacked other sources of revenue and left our dataset incomplete. Fortunately, the 1949 Historical Statistics of the United States 1789-1945 includes detailed annual totals from 1792 to 1945, which bridges the gap in this dataset. This paper’s final tax revenue dataset is 1792-1944 from Historical Statistics of the United States 1789-1945 and 1945-2020 from Office of Management and Budget (2022).
+
+2.	**Gross Domestic Product (1792-2020)** : This paper’s first proxy for cyclicality is Gross Domestic Product. The collaborative work of Johnston and Williamson (2022) on measuringworth.com aggregated data from Kuznets et. al up to 1929 and uses the Bureau of Economic Analysis’ current estimates from 1929 to 2020. This paper utilizes the Johnston and Williamson (2022) dataset for the years 1792-2020.
+
+3.	**Unemployment (1900-2020)**: The second proxy for cyclicality is the unemployment rate. FRED unemployment data is monthly and only reaches back to January 1948, so for any pre-war data another source is needed. Lebergott (1957) combines estimates from 1900-1928, Monthly Labor Review data for 1929-1939, and data through 1954 from the Bureau of the Census. This paper’s final unemployment dataset includes 1900-1948 from Lebergott (1957) and FRED’s estimates from 1948-2020 (UNRATENSA).
+
+
+### Tax History
+
+  The history of taxation in the United States can be split into four eras: 
+
+1.	**Customs Duties Era (1790-1862)**: The era before 1862 is the era of Customs Duties. Another feature of this era is the sporadic use of Sale of Public Land to raise revenue. 
+
+2.	**Excise Tax Era (1862-1913)**: The establishment of the IRS in 1862 allowed for Excise and Income taxation, though the Income Tax was repealed in 1872. This marks the second era between 1862 and 1913, where the Excise Tax and Customs Duties combined for more than 90% of Federal Government Revenues. 
+
+3.	**Income Tax Era (1913-1945)**: After being deemed unconstitutional in 1892, the Income Tax was reestablished in 1913 when Wilson’s administration signed the 16th Amendment into law. The period between 1913 and The Income Tax does not remain above 50% of federal revenues until World War II. These dates distinguish the third era, in which two wars and a Great Depression occur.
+
+4.	**Decline of Income Tax Era (1945-Present)**: The undercurrent of the Income Tax Era is the onset and growth of Social Insurance and Retirement Taxes, or Payroll Taxes. After reaching over 80% of federal government revenue in 1945, the Income Tax enters a slow decline as Payroll Taxes grew from 8% of revenues in 1945 to over 40% revenues in 2004. This paper was written in the fourth era.
+The data for Figure 3 below uses the methodology and data from Hungerford (2006). His CRS report summarized US Tax History into three phases instead of four, combining this paper’s two eras of Income Tax dominance into a single Income Tax Era. 
+
+```{r}
+
+```
+
+
+### Analysis
+
+  This paper’s method relies on a simple decade by decade calculation of correlation between the measure of cyclicality (GDP or Unemployment Rate) and Tax Revenue by Source.
+  
+```{r}
+
+```
+
+  This first Figure 4 provides a two-century overview of the U.S. Federal Government’s Total Receipts’ 10-Year Correlation with Nominal GDP. In the initial 1800-1820, Total Receipts had a negligibly or negatively correlated relationship with Nominal GDP. For the remainder of U.S. history, Total Receipts remains positively correlated with Nominal GDP. 
+  
+```{r}
+
+```
+  
+  Compare Figure 4 to Figure 5. The annual growth of the Unemployment Rate is negatively correlated with Total Receipts over the sample period 1910-2020. Because the Unemployment Rate would increase in a downturn, this again is evidence that U.S. tax revenue is procyclical. Let’s compare these two indicators to the specific types of taxes observed.
+  
+```{r}
+
+```
+  
+  First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
+  
+  
+  
 
 ```{r, echo = F}
 # d <- data.frame(
