@@ -6,15 +6,17 @@ theme: null
 
 # **This is Nick Anderson's website**
 
-There is nothing interesting on this page. Look at the other pages on this site to see my projects
+This site is relatively new. The only page that is populated as of the writing of this message is Economic History. Take a look:
 
-</div>
-<div class="col-sm-6">
+[Economic History](https://www.nickanderson.us/na-economichistory.html)
 
-I think this is all open source and you can remake it all yourself but this page has my name on it and for that reason it belongs to me. If another Nick Anderson were to challenge me for spiritual ownership of this site, I may accept the challenge, but legally the domain is my property. There isn't very much of an argument. But feel free to take my code and data and do whatever you want with it. 
+<!-- </div> -->
+<!-- <div class="col-sm-6"> -->
 
-</a>
-</div>
+
+
+<!-- </a> -->
+<!-- </div> -->
 
 
 
