@@ -44,9 +44,11 @@ IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax R
 
 ## **Tax Revenue Cyclicality: The U.S. Example 1800-2020**
 
-By Nick Anderson
+#### By Nick Anderson
 
-Dated 2022.01.07
+#### Dated 2022.01.07
+
+
 
 ### Abstract
 
@@ -224,6 +226,8 @@ ggIncomeTaxData2
 
 ```
 
+
+
 ### Data
 
   Data collection and cleaning proved the most difficult portion of this paper. FRED timeseries data for GDP, unemployment, and the federal budget all cut out between 1929 and 1999, requiring alternative data sources for further historical investigation. 
@@ -235,6 +239,8 @@ ggIncomeTaxData2
 2.	**Gross Domestic Product (1792-2020)** : This paper’s first proxy for cyclicality is Gross Domestic Product. The collaborative work of Johnston and Williamson (2022) on measuringworth.com aggregated data from Kuznets et. al up to 1929 and uses the Bureau of Economic Analysis’ current estimates from 1929 to 2020. This paper utilizes the Johnston and Williamson (2022) dataset for the years 1792-2020.
 
 3.	**Unemployment (1900-2020)**: The second proxy for cyclicality is the unemployment rate. FRED unemployment data is monthly and only reaches back to January 1948, so for any pre-war data another source is needed. Lebergott (1957) combines estimates from 1900-1928, Monthly Labor Review data for 1929-1939, and data through 1954 from the Bureau of the Census. This paper’s final unemployment dataset includes 1900-1948 from Lebergott (1957) and FRED’s estimates from 1948-2020 (UNRATENSA).
+
+
 
 
 ### Tax History
@@ -253,6 +259,8 @@ The data for Figure 3 below uses the methodology and data from Hungerford (2006)
 ```{r}
 
 ```
+
+
 
 
 ### Analysis
@@ -278,6 +286,9 @@ The data for Figure 3 below uses the methodology and data from Hungerford (2006)
   First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
   
   
+
+
+
 
 
 
