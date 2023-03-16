@@ -35,14 +35,14 @@ IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax R
 #IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
 
-??toc
+#??toc
 
 ```
 
 
 # Tax Revenue Cyclicality
 
-Tax Revenue Cyclicality: The U.S. Example 1800-2020
+## Tax Revenue Cyclicality: The U.S. Example 1800-2020
 
 By Nick Anderson
 
@@ -185,16 +185,18 @@ ITvsCol2a <- ITvsCol2 %>%
 ITvsCol2b <- ITvsCol2 %>%
             filter(type == 'NGDP')
 
+#ITvsCol2b[1] <- ITvsCol2b[1]/10
+
 ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    geom_col() +
-                   scale_y_continuous(name="Dollars (in Billions)",
+                   scale_y_continuous(name="Tax Revenue in $B",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
                                       sec.axis =
                                       sec_axis(
-                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(ITvsCol$value),
-                                                          name="Nominal GDP",
-                                                          labels = scales::label_percent()),
+                                        trans=~./max(IncomeTaxvs$value)*max(ITvsCol2b$value),
+                                                          name="Nominal GDP in $B",
+                                                          labels=scales::dollar_format(accuracy=.1)),
                                       ) +
                    scale_x_continuous(name="Years of the Great Depression",
                                       breaks=seq(min(ITvsCol$date),max(ITvsCol$date),by=2),
@@ -210,15 +212,16 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                          axis.line = element_line(colour = "black"), 
                          ) +
                    geom_line(data=ITvsCol2b,
-                             aes(y=value),
-                             size=2, )
+                             aes(y=value/max(IncomeTaxvs$value)),
+                             size=2, 
+                             color = '#00B0F0')
 
 ggIncomeTaxData2
 
 ```
 
 
-```{r}
+```{r, echo = F}
 # d <- data.frame(
 #   y=c(0.1, 0.2, 0.7),
 #   cat = factor(c('No', 'Yes', 'NA'), levels = c('NA', 'Yes', 'No')))
@@ -240,7 +243,7 @@ ggIncomeTaxData2
 ```
 
 
-# Adding R stuff
+# Second Project
 
 ```{r, echo = F}
 samples <- rnorm(100, mean=0, sd=1)
