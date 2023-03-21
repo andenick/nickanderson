@@ -31,6 +31,7 @@ remove(list = ls())
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
 IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
+IncomeTaxData3 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport2")
 
 #IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
@@ -196,7 +197,7 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    geom_line(data=ITvsCol2b,
                              aes(y=value/max(value)*max(IncomeTaxvs$value/1000000000)),
                              size=2, 
-                             color = 'green'
+                             color = 'black'
                              ) +
                    scale_y_continuous(name="Tax Revenue in $B",
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
@@ -219,9 +220,8 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                          panel.background = element_blank(), 
                          axis.line = element_line(colour = "black"), 
                          ) + 
-                   scale_fill_discrete(breaks=c('Income Tax Revenue','Other Tax Revenue','NGDP'))
+                   scale_fill_discrete(palette=c('#640000','#006400','black'),breaks=c('Income Tax Revenue','Other Tax Revenue','NGDP'))
 
-?scale_fill_discrete
 
 ggIncomeTaxData2
 
