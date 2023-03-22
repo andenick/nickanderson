@@ -18,15 +18,12 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 require('readxl')
 require('tidyverse')
 require('formattable')
-require('directlabels')
 #install.packages('readxl')
 #install.packages('tidyverse')
 #install.packages('formattable')
-#install.packages('directlabels')
 library(readxl)
 library(tidyverse)
 library(formattable)
-library(directlabels)
 remove(list = ls())
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
@@ -186,11 +183,21 @@ ITvsCol2a <- ITvsCol2 %>%
             filter(type != 'NGDP' & type != 'Population')
 
 ITvsCol2b <- ITvsCol2 %>%
-             filter(type == 'NGDP') 
+             filter(type == 'NGDP')
 
+ITvsCol2b <- ITvsCol2b %>%
+                mutate(mark=NA)
 
+ITvsCol2b$mark[1] <- paste0('$', as.character(round(ITvsCol2b$value[1]/1000000000,digits=2)))
+ITvsCol2b$mark[3] <- paste0('$', as.character(round(ITvsCol2b$value[3]/1000000000,digits=2)))
+ITvsCol2b$mark[5] <- paste0('$', as.character(round(ITvsCol2b$value[5]/1000000000,digits=2)))
+ITvsCol2b$mark[7] <- paste0('$', as.character(round(ITvsCol2b$value[7]/1000000000,digits=2)))
+ITvsCol2b$mark[9] <- paste0('$', as.character(round(ITvsCol2b$value[9]/1000000000,digits=2)))
+ITvsCol2b$mark[11] <- paste0('$', as.character(round(ITvsCol2b$value[11]/1000000000,digits=2)))
+ITvsCol2b$mark[13] <- paste0('$', as.character(round(ITvsCol2b$value[13]/1000000000,digits=2)))
+ITvsCol2b$mark[15] <- paste0('$', as.character(round(ITvsCol2b$value[15]/1000000000,digits=2)))
 
-#ITvsCol2b[1] <- ITvsCol2b[1]/10
+ggratio2 <- max(IncomeTaxvs$value/1000000000)/max(ITvsCol2b$value)
 
 ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                    geom_col() +
@@ -220,7 +227,16 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                          panel.background = element_blank(), 
                          axis.line = element_line(colour = "black"), 
                          ) + 
-                   scale_fill_discrete(palette=c('#640000','#006400','black'),breaks=c('Income Tax Revenue','Other Tax Revenue','NGDP'))
+                   scale_fill_manual(values=c("#640000", "#00B0F0",'black'),
+                                     breaks=c('Income Tax Revenue','Other Tax Revenue','NGDP')) +
+                   geom_label(data=ITvsCol2b,
+                              aes(y = value*ggratio2+.4,
+                                  label = mark,),
+                              nudge_x = 0, size = 3,
+                              fill = 'gray',
+                             )
+
+
 
 
 ggIncomeTaxData2
@@ -257,7 +273,50 @@ ggIncomeTaxData2
 4.	**Decline of Income Tax Era (1945-Present)**: The undercurrent of the Income Tax Era is the onset and growth of Social Insurance and Retirement Taxes, or Payroll Taxes. After reaching over 80% of federal government revenue in 1945, the Income Tax enters a slow decline as Payroll Taxes grew from 8% of revenues in 1945 to over 40% revenues in 2004. This paper was written in the fourth era.
 The data for Figure 3 below uses the methodology and data from Hungerford (2006). His CRS report summarized US Tax History into three phases instead of four, combining this paper’s two eras of Income Tax dominance into a single Income Tax Era. 
 
-```{r}
+
+```{r, echo = FALSE}
+TaxEra <- IncomeTaxData3 %>%
+          select(date) %>%
+          mutate(mark = NA) 
+
+# ?fct_reorder
+
+TaxEra$mark[21] <- '1' 
+TaxEra$mark[67] <- '2'
+TaxEra$mark[109] <- '3'
+TaxEra$mark[157] <- '4'
+
+    
+ggTaxData1 <- ggplot(IncomeTaxData3, aes(x=date,y=value,fill=fct_reorder(type,order))) +
+              geom_area() +
+              guides(fill=guide_legend(title=''))+
+              theme(legend.position="bottom",
+                    panel.grid.major = element_blank(), 
+                    panel.grid.minor = element_blank(),
+                    panel.background = element_blank(), 
+                    axis.line = element_line(colour = "black"), 
+                    ) +
+                   scale_y_continuous(name="% of Government Revenue",
+                                      breaks=seq(from=0,to=1,by=.1), 
+                                      labels=scales::label_percent()) +
+                   scale_x_continuous(name="Years",
+                                      breaks=seq(min(IncomeTaxData3$date),max(IncomeTaxData3$date),by=20),
+                                      ) +
+                  geom_vline(aes(xintercept=1862)) +
+                  geom_vline(aes(xintercept=1913)) +
+                  geom_vline(aes(xintercept=1945)) +
+                  geom_label(data=TaxEra,
+                              aes(y = .5,
+                                  label = mark,),
+                              nudge_x = 0, size = 5,
+                              fill = 'gray',
+                             ) +
+                  scale_fill_manual(values=c("yellow",'green',"#00B0F0",'purple','#640000'))
+
+
+ggTaxData1
+
+#breaks=c('Customs Duties','Sales of Public Lands','Payroll Taxes','Income Tax','Excise Tax
 
 ```
 
@@ -287,6 +346,9 @@ The data for Figure 3 below uses the methodology and data from Hungerford (2006)
   First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
   
   
+  
+
+1. Per Capita GDP, tax etc
 
 
 
