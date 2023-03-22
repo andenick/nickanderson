@@ -210,10 +210,10 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                                       breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
                                       sec.axis =
-                                      sec_axis(
-                                        trans=~./max(IncomeTaxvs$value)*max(ITvsCol2b$value),
-                                                          name="Nominal GDP in $B",
-                                                          labels=scales::dollar_format(accuracy=.1)),
+                                      sec_axis(trans=~./max(IncomeTaxvs$value)*max(ITvsCol2b$value),
+                                               name="Nominal GDP in $B",
+                                               labels=scales::dollar_format(accuracy=.1),
+                                               breaks=seq(0,max(ITvsCol2b$value/1000000000),by=20)),
                                       ) +
                    scale_x_continuous(name="Years of the Great Depression",
                                       breaks=seq(min(ITvsCol$date),max(ITvsCol$date),by=2),
@@ -268,7 +268,7 @@ ggIncomeTaxData2
 
 2.	**Excise Tax Era (1862-1913)**: The establishment of the IRS in 1862 allowed for Excise and Income taxation, though the Income Tax was repealed in 1872. This marks the second era between 1862 and 1913, where the Excise Tax and Customs Duties combined for more than 90% of Federal Government Revenues. 
 
-3.	**Income Tax Era (1913-1945)**: After being deemed unconstitutional in 1892, the Income Tax was reestablished in 1913 when Wilson’s administration signed the 16th Amendment into law. The period between 1913 and The Income Tax does not remain above 50% of federal revenues until World War II. These dates distinguish the third era, in which two wars and a Great Depression occur.
+3.	**Income Tax Era (1913-1945)**: After being deemed unconstitutional in 1892, the Income Tax was reestablished in 1913 when Wilson’s administration signed the 16th Amendment into law. The Income Tax does not remain above 50% of federal revenues until World War II. These dates distinguish the third era, in which two wars and a Great Depression occur.
 
 4.	**Decline of Income Tax Era (1945-Present)**: The undercurrent of the Income Tax Era is the onset and growth of Social Insurance and Retirement Taxes, or Payroll Taxes. After reaching over 80% of federal government revenue in 1945, the Income Tax enters a slow decline as Payroll Taxes grew from 8% of revenues in 1945 to over 40% revenues in 2004. This paper was written in the fourth era.
 The data for Figure 3 below uses the methodology and data from Hungerford (2006). His CRS report summarized US Tax History into three phases instead of four, combining this paper’s two eras of Income Tax dominance into a single Income Tax Era. 
@@ -278,8 +278,6 @@ The data for Figure 3 below uses the methodology and data from Hungerford (2006)
 TaxEra <- IncomeTaxData3 %>%
           select(date) %>%
           mutate(mark = NA) 
-
-# ?fct_reorder
 
 TaxEra$mark[21] <- '1' 
 TaxEra$mark[67] <- '2'
@@ -300,18 +298,19 @@ ggTaxData1 <- ggplot(IncomeTaxData3, aes(x=date,y=value,fill=fct_reorder(type,or
                                       breaks=seq(from=0,to=1,by=.1), 
                                       labels=scales::label_percent()) +
                    scale_x_continuous(name="Years",
-                                      breaks=seq(min(IncomeTaxData3$date),max(IncomeTaxData3$date),by=20),
+                                      breaks=seq(min(IncomeTaxData3$date),max(IncomeTaxData3$date),by=10),
                                       ) +
-                  geom_vline(aes(xintercept=1862)) +
-                  geom_vline(aes(xintercept=1913)) +
-                  geom_vline(aes(xintercept=1945)) +
+                  geom_vline(aes(xintercept=1862), size = 1) +
+                  geom_vline(aes(xintercept=1913), size = 1) +
+                  geom_vline(aes(xintercept=1945), size = 1) +
                   geom_label(data=TaxEra,
                               aes(y = .5,
                                   label = mark,),
                               nudge_x = 0, size = 5,
                               fill = 'gray',
                              ) +
-                  scale_fill_manual(values=c("yellow",'green',"#00B0F0",'purple','#640000'))
+                  scale_fill_manual(values=c("#ffc000",'#92d050',"#00B0F0",'#7030a0','#640000')) +
+                   ggtitle("Figure 3: Federal Government Revenue as % of Total Receipts, by Revenue Source")
 
 
 ggTaxData1
@@ -345,12 +344,54 @@ ggTaxData1
   
   First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
   
-  
+
+```{r}
+
+```
+
+
+	The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
+
+	
+```{r}
+
+```
+
+	
+  Finally, Customs Duties. Customs Duties are only compared to Nominal GDP because our Unemployment dataset does not reach before 1900. Though the picture is mixed before 1860, after 1880 Customs Duties remain positively correlated with GDP, thus displaying procyclical tendencies, though not as strong as the income tax.
   
 
+### Conclusion
+
+	Centuries of evidence from the United States supports the conclusion that tax revenue displays procyclical tendencies. Specifically, the income tax has remained consistently procyclical when compared to both Gross Domestic Product and Unemployment Rates. However, this author understands their data and method could be refined to draw more nuanced conclusions. The evolving political landscape and tax system provide no shortage of ‘factors’ that could be adjusted for when examining centuries long timeseries from different sources. 
+
+
+### References
+
+“Government (Series P 1-277).” Historical Statistics of the United States: 1789-1945; a Supplement to the Statistical Abstract of     the United States, United States Dept. of Commerce, Washington, DC, 1949, pp. 283–319. 
+
+“Historical Tables.” The White House Historical Tables, U.S. Office of Management and Budget, 28 May 2021,                            https://www.whitehouse.gov/omb/historical-tables/
+
+Hungerford, Thomas L. “U.S. Federal Government Revenues: 1790 to the Present.” Everycrsreport.com, 5 Sept. 2006,                      https://www.everycrsreport.com/reports/RL33665.html. 
+
+Johnston, Louis, and Samuel H Williamson. “What Was the U.S. GDP Then?” Measuring Worth - GDP Result., Measuringworth,                https://www.measuringworth.com/datasets/usgdp/result.php.
+
+Lebergott, Stanley. “Annual Estimates of Unemployment in the United States, 1900-1954.” Unemployment: Pamphlets, NBER, 1957, pp.      211–242. 
+
+Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Receipts, Outlays, and Surpluses or Deficits (-):          1789–2026;” Table 1.4, “Receipts, Outlays, and Surpluses or Deficits (-) by Fund Group: 1934–2026;” Table 2.1, “Receipts by         Source: 1934–2026;” and Table 2.3, “Receipts by Source as Percentages of GDP: 1934–2026.”
+  U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA], retrieved from FRED, Federal Reserve Bank of St. Louis;             https://fred.stlouisfed.org/series/UNRATENSA
+
+
+### Appendices  
+
+appendices
 1. Per Capita GDP, tax etc
 
-
+to do
+2. Add order to graphs so income tax is easier to see
+2a-this means redoing the first dataset in income tax data, rexport should look like rexport 1 and rexport 2
+3. fix stuff that is not displaying well when knit
+4. update % graph to 2022
 
 
 
