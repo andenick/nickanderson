@@ -168,7 +168,10 @@ ggIncomeTaxData
 
 ```
 
-Source: Lebergott 1957 (he was with the NBER) and the BLS [Data](https://www.nickanderson.us/data.html)
+Sources: 
+Tax Data: FILL
+Unemployment Data: Lebergott 1957 (he was with the NBER) and the BLS 
+[Data](https://www.nickanderson.us/data.html)
 
 The Great Depression remains the severest example of economic depression available for examination. The author emphasizes this example not as conclusive proof, but as a demonstration of income tax revenue procyclicality.
 
@@ -243,7 +246,7 @@ ggIncomeTaxData2
 
 ```
 
-
+Source: Lebergott 1957 (he was with the NBER) and the BLS [Data](https://www.nickanderson.us/data.html)
 
 ### Data
 
