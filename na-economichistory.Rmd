@@ -310,7 +310,8 @@ ggTaxData1 <- ggplot(IncomeTaxData3, aes(x=date,y=value,fill=fct_reorder(type,or
                               fill = 'gray',
                              ) +
                   scale_fill_manual(values=c("#ffc000",'#92d050',"#00B0F0",'#7030a0','#640000')) +
-                   ggtitle("Figure 3: Federal Government Revenue as % of Total Receipts, by Revenue Source")
+                   ggtitle("Figure 3: Federal Government Revenue as % of Total Receipts, 
+                           by Revenue Source")
 
 
 ggTaxData1
