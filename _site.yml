@@ -5,14 +5,14 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Economic History"
-      href: na-economichistory.html
+      href: economichistory.html
     - text: "Investing"
-      href: na-investing.html
+      href: investing.html
     - text: "Data"
-      href: na-data.html
+      href: data.html
     - text: "About"
-      href: na-about.html
+      href: about.html
     - text: "Contact"
-      href: na-contact.html
+      href: contact.html
       
 output_dir: "docs"

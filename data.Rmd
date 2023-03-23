@@ -1,34 +1,13 @@
 ---
-title: "Nick Anderson"
+title: "Data"
 output: html_document
-theme: null
 ---
 
-# **New Website**
+Every economist is responsible for their own data. 
 
-This site is relatively new. The only page that is populated as of the writing of this message is Economic History. Take a look:
+Here is mine:
 
-[Economic History](https://www.nickanderson.us/economichistory.html)
-
-
-
-
-
-Last compiled: `r Sys.Date()`
-
-
-
-
-<!-- </div> -->
-<!-- <div class="col-sm-6"> -->
-
-
-
-<!-- </a> -->
-<!-- </div> -->
-
-
-
+[Tax Revenue Cyclicality](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
 
 
 
