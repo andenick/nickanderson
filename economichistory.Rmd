@@ -26,9 +26,15 @@ library(tidyverse)
 library(formattable)
 remove(list = ls())
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
-IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
-IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
-IncomeTaxData3 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport2")
+# IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
+IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
+IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport2")
+IncomeTaxData3 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport3")
+IncomeTaxData4 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport4")
+IncomeTaxData5 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport5")
+IncomeTaxData6 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport6")
+IncomeTaxData7 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport7")
+IncomeTaxData8 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport8")
 
 #IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
@@ -60,72 +66,47 @@ This paper investigates the correlation between cyclicality and federal tax reve
 
 ```{r, echo = F}
 
-#GDP <- 
-IncomeTaxvs <- IncomeTaxData %>%
-               select(Year,'Total Receipts') %>% 
-               mutate(id='Total Receipts') %>%
-               rename("type" = "id",
-                      "value" = "Total Receipts",
-                      "date" = "Year")
+TotalReceipts  <- IncomeTaxData %>%
+                filter(type == 'Total Receipts')
 
-IncomeTaxvs1 <- IncomeTaxData %>%
-               select(Year,'Not Income Tax') %>%
-               mutate(id='Other Tax Revenue') %>%
-               rename("type" = "id",
-                      "value" = "Not Income Tax",
-                      "date" = "Year")
+UnempRate <- IncomeTaxData %>%
+               filter(type == 'Unemployment Rate') 
 
-IncomeTaxvs2 <- IncomeTaxData %>%
-               select(Year,'Income Tax') %>% 
-               mutate(id='Income Tax Revenue') %>%
-               rename("type" = "id",
-                      "value" = "Income Tax",
-                      "date" = "Year")
-
-IncomeTaxvs3 <- IncomeTaxData %>%
-               select(Year,'Unemployment Rate') %>% 
-               mutate(id='Unemployment Rate') %>%
-               rename("type" = "id",
-                      "value" = "Unemployment Rate",
-                      "date" = "Year")
-
-ITvs <- rbind(IncomeTaxvs,IncomeTaxvs1) 
-ITvs <- rbind(ITvs,IncomeTaxvs2)
-ITvs <- rbind(ITvs,IncomeTaxvs3)
+ITvs <- IncomeTaxData
 
 ITvsCol <- ITvs %>%
            filter(type != 'Total Receipts') %>%
            filter(type != 'Unemployment Rate') %>%
            mutate(value = value/1000000000)
 
-IncomeTaxvs3 <- IncomeTaxvs3 %>%
+UnempRate <- UnempRate %>%
                 mutate(mark=NA)
 
 
-IncomeTaxvs3$mark[1] <- paste0(as.character(IncomeTaxvs3$value[1]*100), '%')
-IncomeTaxvs3$mark[3] <- paste0(as.character(IncomeTaxvs3$value[3]*100), '%')
-IncomeTaxvs3$mark[5] <- paste0(as.character(IncomeTaxvs3$value[5]*100), '%')
-IncomeTaxvs3$mark[7] <- paste0(as.character(IncomeTaxvs3$value[7]*100), '%')
-IncomeTaxvs3$mark[9] <- paste0(as.character(IncomeTaxvs3$value[9]*100), '%')
-IncomeTaxvs3$mark[11] <- paste0(as.character(IncomeTaxvs3$value[11]*100), '%')
-IncomeTaxvs3$mark[13] <- paste0(as.character(IncomeTaxvs3$value[13]*100), '%')
-IncomeTaxvs3$mark[15] <- paste0(as.character(IncomeTaxvs3$value[15]*100), '%')
+UnempRate$mark[1] <- paste0(as.character(UnempRate$value[1]*100), '%')
+UnempRate$mark[3] <- paste0(as.character(UnempRate$value[3]*100), '%')
+UnempRate$mark[5] <- paste0(as.character(UnempRate$value[5]*100), '%')
+UnempRate$mark[7] <- paste0(as.character(UnempRate$value[7]*100), '%')
+UnempRate$mark[9] <- paste0(as.character(UnempRate$value[9]*100), '%')
+UnempRate$mark[11] <- paste0(as.character(UnempRate$value[11]*100), '%')
+UnempRate$mark[13] <- paste0(as.character(UnempRate$value[13]*100), '%')
+UnempRate$mark[15] <- paste0(as.character(UnempRate$value[15]*100), '%')
 
 #ITvsCol2 <- rbind(ITvsCol,IncomeTaxvs3)
 #str(IncomeTaxvs)
 
 #ITvsCol$type <- relevel()
 
-ggratio1 <- (max(IncomeTaxvs$value/1000000000))/max(IncomeTaxvs3$value)
+ggratio1 <- (max(TotalReceipts$value/1000000000))/max(UnempRate$value)
 
 ggIncomeTaxData <- ggplot(ITvsCol,aes(x=date,y=value,fill=type)) +
                    geom_col() +
                    scale_y_continuous(name="Dollars (in Billions)",
-                                      breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
+                                      breaks=seq(0,max(TotalReceipts$value/1000000000)+1.5,by=1),
                                       labels=scales::dollar_format(accuracy=.1),
                                       sec.axis =
                                       sec_axis(
-                                        trans=~./max(IncomeTaxvs$value/1000000000)*max(IncomeTaxvs3$value),
+                                        trans=~./max(TotalReceipts$value/1000000000)*max(UnempRate$value),
                                                           name="% Unemployment Rate",
                                                           labels = scales::label_percent()),
                                       ) +
@@ -142,11 +123,11 @@ ggIncomeTaxData <- ggplot(ITvsCol,aes(x=date,y=value,fill=type)) +
                          panel.background = element_blank(), 
                          axis.line = element_line(colour = "black"), 
                          ) +
-                   geom_line(data=IncomeTaxvs3,
+                   geom_line(data=UnempRate,
                              aes(y=value*ggratio1),
                              linewidth=2,
                              ) +
-                   geom_label(data=IncomeTaxvs3,
+                   geom_label(data=UnempRate,
                               aes(y = value*ggratio1+.4,
                                   label = mark,), 
                               nudge_x = 0.35, size = 3,
@@ -183,10 +164,10 @@ The ‘business cycle’ is not easy to define, so this paper examines two aspec
 ITvsCol2 <- rbind(ITvsCol,IncomeTaxData2)
 
 ITvsCol2a <- ITvsCol2 %>%
-            filter(type != 'NGDP' & type != 'Population')
+            filter(type != 'Nominal GDP' & type != 'Population')
 
 ITvsCol2b <- ITvsCol2 %>%
-             filter(type == 'NGDP')
+             filter(type == 'Nominal GDP')
 
 ITvsCol2b <- ITvsCol2b %>%
                 mutate(mark=NA)
@@ -200,44 +181,44 @@ ITvsCol2b$mark[11] <- paste0('$', as.character(round(ITvsCol2b$value[11]/1000000
 ITvsCol2b$mark[13] <- paste0('$', as.character(round(ITvsCol2b$value[13]/1000000000,digits=2)))
 ITvsCol2b$mark[15] <- paste0('$', as.character(round(ITvsCol2b$value[15]/1000000000,digits=2)))
 
-ggratio2 <- max(IncomeTaxvs$value/1000000000)/max(ITvsCol2b$value)
+ggratio2 <- max(TotalReceipts$value/1000000000)/max(ITvsCol2b$value)
 
 ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
-                   geom_col() +
-                   geom_line(data=ITvsCol2b,
-                             aes(y=value/max(value)*max(IncomeTaxvs$value/1000000000)),
-                             size=2, 
-                             color = 'black'
-                             ) +
-                   scale_y_continuous(name="Tax Revenue in $B",
-                                      breaks=seq(0,max(IncomeTaxvs$value/1000000000)+1.5,by=1),
-                                      labels=scales::dollar_format(accuracy=.1),
-                                      sec.axis =
-                                      sec_axis(trans=~./max(IncomeTaxvs$value)*max(ITvsCol2b$value),
-                                               name="Nominal GDP in $B",
-                                               labels=scales::dollar_format(accuracy=.1),
-                                               breaks=seq(0,max(ITvsCol2b$value/1000000000),by=20)),
-                                      ) +
-                   scale_x_continuous(name="Years of the Great Depression",
-                                      breaks=seq(min(ITvsCol$date),max(ITvsCol$date),by=2),
-                                      ) +
-                   ggtitle("Figure 2: U.S. Federal Government Revenue from 1927-1941, 
-                           with GDP") +
-                   guides(fill=guide_legend(title='')) +
-                   theme(legend.position="right",
-                         panel.grid.major = element_blank(), 
+                    geom_col() +
+                    geom_line(data=ITvsCol2b,
+                              aes(y=value/max(value)*max(TotalReceipts$value/1000000000)),
+                              size=2,
+                              color = 'black'
+                              ) +
+                    scale_y_continuous(name="Tax Revenue in $B",
+                                       breaks=seq(0,max(TotalReceipts$value/1000000000)+1.5,by=1),
+                                       labels=scales::dollar_format(accuracy=.1),
+                                       sec.axis =
+                                       sec_axis(trans=~./max(TotalReceipts$value)*max(ITvsCol2b$value),
+                                                name="Nominal GDP in $B",
+                                                labels=scales::dollar_format(accuracy=.1),
+                                                breaks=seq(0,max(ITvsCol2b$value/1000000000),by=20)),
+                                       ) +
+                    scale_x_continuous(name="Years of the Great Depression",
+                                       breaks=seq(min(ITvsCol$date),max(ITvsCol$date),by=2),
+                                       ) +
+                    ggtitle("Figure 2: U.S. Federal Government Revenue from 1927-1941,
+                            with GDP") +
+                    guides(fill=guide_legend(title='')) +
+                    theme(legend.position="right",
+                          panel.grid.major = element_blank(),
                          panel.grid.minor = element_blank(),
-                         panel.background = element_blank(), 
-                         axis.line = element_line(colour = "black"), 
-                         ) + 
-                   scale_fill_manual(values=c("#640000", "#00B0F0",'black'),
-                                     breaks=c('Income Tax Revenue','Other Tax Revenue','NGDP')) +
-                   geom_label(data=ITvsCol2b,
-                              aes(y = value*ggratio2+.4,
-                                  label = mark,),
-                              nudge_x = 0, size = 3,
-                              fill = 'gray',
-                             )
+                          panel.background = element_blank(),
+                          axis.line = element_line(colour = "black"),
+                          ) +
+                    scale_fill_manual(values=c("#640000", "#00B0F0",'black'),
+                                      breaks=c('Income Tax Revenue','Other Tax Revenue','Nominal GDP')) +
+                    geom_label(data=ITvsCol2b,
+                               aes(y = value*ggratio2+.4,
+                               label = mark,),
+                               nudge_x = 0, size = 3,
+                               fill = 'gray',
+                               )
 
 
 
@@ -246,7 +227,8 @@ ggIncomeTaxData2
 
 ```
 
-Source: Lebergott 1957 (he was with the NBER) and the BLS [Data](https://www.nickanderson.us/data.html)
+Source: FILL
+[Data](https://www.nickanderson.us/data.html)
 
 ### Data
 
@@ -323,6 +305,8 @@ ggTaxData1
 
 ```
 
+Source: FILL
+[Data](https://www.nickanderson.us/data.html)
 
 
 
@@ -330,35 +314,143 @@ ggTaxData1
 
   This paper’s method relies on a simple decade by decade calculation of correlation between the measure of cyclicality (GDP or Unemployment Rate) and Tax Revenue by Source.
   
-```{r}
+```{r, echo = FALSE}
+
+ggCorrelation1 <- ggplot(IncomeTaxData4,aes(x=date,y=value)) +
+                  geom_line(size = 2, color = "#640000") +
+                  guides(fill=guide_legend(title=''))+
+                  theme(legend.position="bottom",
+                        panel.grid.major = element_blank(), 
+                        panel.grid.minor = element_blank(),
+                        panel.background = element_blank(), 
+                        axis.line = element_line(colour = "black"), 
+                        ) +
+                       scale_y_continuous(name="% Correlation",
+                                          breaks=seq(from=-.5,
+                                                     to=1,
+                                                     by=.1), 
+                                          labels=scales::label_percent()) +
+                       scale_x_continuous(name="Years",
+                                          breaks=seq(min(IncomeTaxData4$date),max(IncomeTaxData4$date),by=20),
+                                          ) +
+                      scale_fill_manual(values=c("#640000")) +
+                      ggtitle("Figure 4: Correlation by decade of % growth of Total Receipts and 
+                               Nominal GDP, 1800-2020") +
+                      geom_hline(yintercept=0, size = 1)
+
+
+ggCorrelation1
 
 ```
 
   This first Figure 4 provides a two-century overview of the U.S. Federal Government’s Total Receipts’ 10-Year Correlation with Nominal GDP. In the initial 1800-1820, Total Receipts had a negligibly or negatively correlated relationship with Nominal GDP. For the remainder of U.S. history, Total Receipts remains positively correlated with Nominal GDP. 
   
-```{r}
+```{r, echo = FALSE}
 
+ggCorrelation2 <- ggplot(IncomeTaxData5,aes(x=date,y=value)) +
+                  geom_line(size = 2, color = "#640000") +
+                  guides(fill=guide_legend(title=''))+
+                  theme(legend.position="bottom",
+                        panel.grid.major = element_blank(), 
+                        panel.grid.minor = element_blank(),
+                        panel.background = element_blank(), 
+                        axis.line = element_line(colour = "black"), 
+                        ) +
+                       scale_y_continuous(name="% Correlation",
+                                          breaks=seq(from=-1,to=1,by=.1), 
+                                          labels=scales::label_percent()) +
+                       scale_x_continuous(name="Years",
+                                          breaks=seq(min(IncomeTaxData5$date),max(IncomeTaxData5$date),by=10),
+                                          ) +
+                      scale_fill_manual(values=c("#640000")) +
+                      ggtitle("Figure 5: Correlation by decade of % growth of Total Receipts and 
+                               Unemployment, 1900-2020") +
+                      geom_hline(yintercept=0, size = 1)
+
+
+ggCorrelation2
 ```
   
   Compare Figure 4 to Figure 5. The annual growth of the Unemployment Rate is negatively correlated with Total Receipts over the sample period 1910-2020. Because the Unemployment Rate would increase in a downturn, this again is evidence that U.S. tax revenue is procyclical. Let’s compare these two indicators to the specific types of taxes observed.
   
-```{r}
+```{r, echo = FALSE}
+ggCorrelation3 <- ggplot(IncomeTaxData6,aes(x=date,y=value,colour=type)) +
+                  geom_line(size = 2) +
+                  guides(colour=guide_legend(title=''))+
+                  theme(legend.position="bottom",
+                        panel.grid.major = element_blank(), 
+                        panel.grid.minor = element_blank(),
+                        panel.background = element_blank(), 
+                        axis.line = element_line(colour = "black"), 
+                        ) +
+                       scale_y_continuous(name="% Correlation",
+                                          breaks=seq(from=-1,to=1,by=.1), 
+                                          labels=scales::label_percent()) +
+                       scale_x_continuous(name="Years",
+                                          breaks=seq(min(IncomeTaxData6$date),max(IncomeTaxData6$date),by=10),
+                                          ) +
+                      scale_color_manual(values=c("#640000","#00B0F0")) +
+                      ggtitle("Figure 6: Correlation by decade of % growth of Income Tax vs 
+                               Nominal GDP & (-) Unemployment, 1930-2020") +
+                      geom_hline(yintercept=0, size = 1)
 
+
+ggCorrelation3
 ```
   
   First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
   
 
-```{r}
+```{r, echo = FALSE}
+ggCorrelation4 <- ggplot(IncomeTaxData7,aes(x=date,y=value,colour=type)) +
+                  geom_line(size = 2) +
+                  guides(colour=guide_legend(title=''))+
+                  theme(legend.position="bottom",
+                        panel.grid.major = element_blank(), 
+                        panel.grid.minor = element_blank(),
+                        panel.background = element_blank(), 
+                        axis.line = element_line(colour = "black"), 
+                        ) +
+                       scale_y_continuous(name="% Correlation",
+                                          breaks=seq(from=-1,to=1,by=.1), 
+                                          labels=scales::label_percent()) +
+                       scale_x_continuous(name="Years",
+                                          breaks=seq(min(IncomeTaxData7$date),max(IncomeTaxData7$date),by=10),
+                                          ) +
+                      scale_color_manual(values=c("#640000","#00B0F0")) +
+                      ggtitle("Figure 7: Correlation by decade of % growth of Social Insurance and 
+                               Retirement Tax vs Nominal GDP & (-) Unemployment, 1950-2020") +
+                      geom_hline(yintercept=0, size = 1)
 
+
+ggCorrelation4
 ```
 
 
 	The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
 
 	
-```{r}
+```{r, echo = FALSE}
+ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
+                  geom_line(size = 2,color='#640000') +
+                  theme(legend.position="bottom",
+                        panel.grid.major = element_blank(), 
+                        panel.grid.minor = element_blank(),
+                        panel.background = element_blank(), 
+                        axis.line = element_line(colour = "black"), 
+                        ) +
+                       scale_y_continuous(name="% Correlation",
+                                          breaks=seq(from=-1,to=1,by=.1), 
+                                          labels=scales::label_percent()) +
+                       scale_x_continuous(name="Years",
+                                          breaks=seq(min(IncomeTaxData8$date),max(IncomeTaxData8$date),by=10),
+                                          ) +
+                      ggtitle("Figure 8: Correlation by decade of % growth of Customs Duties vs 
+                               Nominal GDP, 1810-1940") +
+                      geom_hline(yintercept=0, size = 1)
 
+
+ggCorrelation5
 ```
 
 	
