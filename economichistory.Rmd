@@ -427,7 +427,12 @@ ggCorrelation4
 ```
 
 
-	The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
+
+The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
+
+
+The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
+
 
 	
 ```{r, echo = FALSE}
@@ -459,7 +464,12 @@ ggCorrelation5
 
 ### Conclusion
 
-	Centuries of evidence from the United States supports the conclusion that tax revenue displays procyclical tendencies. Specifically, the income tax has remained consistently procyclical when compared to both Gross Domestic Product and Unemployment Rates. However, this author understands their data and method could be refined to draw more nuanced conclusions. The evolving political landscape and tax system provide no shortage of ‘factors’ that could be adjusted for when examining centuries long timeseries from different sources. 
+
+Centuries of evidence from the United States supports the conclusion that tax revenue displays procyclical tendencies. Specifically, the income tax has remained consistently procyclical when compared to both Gross Domestic Product and Unemployment Rates. However, this author understands their data and method could be refined to draw more nuanced conclusions. The evolving political landscape and tax system provide no shortage of ‘factors’ that could be adjusted for when examining centuries long timeseries from different sources. 
+
+
+
+
 
 
 ### References
@@ -484,9 +494,10 @@ appendices
 1. Per Capita GDP, tax etc
 
 to do
+
 2. Add order to graphs so income tax is easier to see
-2a-this means redoing the first dataset in income tax data, rexport should look like rexport 1 and rexport 2
-3. fix stuff that is not displaying well when knit
+
+
 4. update % graph to 2022
 
 
