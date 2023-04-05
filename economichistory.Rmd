@@ -487,23 +487,6 @@ Lebergott, Stanley. “Annual Estimates of Unemployment in the United States, 19
 Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Receipts, Outlays, and Surpluses or Deficits (-):          1789–2026;” Table 1.4, “Receipts, Outlays, and Surpluses or Deficits (-) by Fund Group: 1934–2026;” Table 2.1, “Receipts by         Source: 1934–2026;” and Table 2.3, “Receipts by Source as Percentages of GDP: 1934–2026.”
   U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA], retrieved from FRED, Federal Reserve Bank of St. Louis;             https://fred.stlouisfed.org/series/UNRATENSA
 
-
-### Appendices  
-
-appendices
-1. Per Capita GDP, tax etc
-
-to do
-
-2. Add order to graphs so income tax is easier to see
-
-
-4. update % graph to 2022
-
-
-
-
-
 Last compiled: `r Sys.Date()`
 
 
