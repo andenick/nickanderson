@@ -27,14 +27,14 @@ library(formattable)
 remove(list = ls())
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 # IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
-IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
-IncomeTaxData2 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport2")
-IncomeTaxData3 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport3")
-IncomeTaxData4 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport4")
-IncomeTaxData5 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport5")
-IncomeTaxData6 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport6")
-IncomeTaxData7 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport7")
-IncomeTaxData8 <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport8")
+IncomeTaxData <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
+IncomeTaxData2 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport2")
+IncomeTaxData3 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport3")
+IncomeTaxData4 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport4")
+IncomeTaxData5 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport5")
+IncomeTaxData6 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport6")
+IncomeTaxData7 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport7")
+IncomeTaxData8 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport8")
 
 #IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
@@ -488,7 +488,6 @@ Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Rec
   U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA], retrieved from FRED, Federal Reserve Bank of St. Louis;             https://fred.stlouisfed.org/series/UNRATENSA
 
 Last compiled: `r Sys.Date()`
-
 
 <style type="text/css">
 .title {
