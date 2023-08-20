@@ -25,6 +25,54 @@ library(readxl)
 library(tidyverse)
 library(formattable)
 remove(list = ls())
+
+
+```
+
+# Duration and Public Finance
+
+## **Duration and Public Finance in the United States, 2001-2023**
+
+#### By Nick Anderson
+
+#### Dated 2023.05.19
+
+```{r, include = F, echo = F}
+#nothing here yet 
+```
+
+### 1. Introduction
+
+  The United States Treasury Market is a vital funding mechanism for federal government expenditures and has evolved considerably and unpredictably over the last century. This paper focuses on two aspects: the debt issuance of the U.S. Federal Government and the duration of those securities. 
+
+  This story is told by the Monthly Statements of the Public Debt. The United States Treasury has published this on the last day of every month since January of 2001. The novel analysis involved in the writing of this paper involved calculating the bond value and duration for each unique CUSIP (security identification code) of federal government security that has been outstanding since 2001. Because the focus of this paper is on the impact of duration on the Treasury Market, this paper focuses on the only marketable fixed rate treasuries. Floating rate treasuries have durations that are less stable over time and in some cases less sensitive to interest rate changes. 
+
+  The paper then zooms in on three time periods with interesting debt dynamics: the Great Financial Crisis, the 2010’s, and the Coronavirus Pandemic. This is followed by the author’s conclusions.
+
+### 2. The Treasury Market and the Deficit
+
+  For the period 2019-2022, the government has borrowed an additional $983B to $3.1 Trillion a year in order to finance the spending activities of the U.S. Federal Government. Over the same period, these deficit amounts have amounted to between 13% and 34% of total Government spending. This is at a time where government spending is between 20% and 30% of Gross Domestic Product. The deficit spending in these years was between 5% and 15% of Gross Domestic Product. To restate, new government borrowing has recently accounted for at least 5% of Gross Domestic Product for the past four years. 
+
+  This new debt has contributed for over forty years to the massive accumulation of the stock of Treasury debt since 1980. This existing debt comes with an additional obligation. In addition to the new debt necessary to fund the U.S. Federal Government, the United States is required to refinance over $1 Trillion of treasuries a month, resulting in a significant continuous amount of additional borrowing in the market for Treasuries. The United States has no choice but to refinance or default, implying the vital importance of the Treasury market in the continued functioning of the economy of the United States.
+
+  Below, Figure 1 depicts the stocks outstanding of U.S. Treasuries by Years to Maturity with data from the Treasury and Figure 2 depicting aggregate treasury issuance from April 2022 to April 2023.
+
+```{r, include = F, echo = F}
+#![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+```
+
+
+
+# Tax Revenue Cyclicality
+
+## **Tax Revenue Cyclicality: The U.S. Example 1800-2020**
+
+#### By Nick Anderson
+
+#### Dated 2022.01.07
+
+```{r, include = F, echo = F}
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 # IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
 IncomeTaxData <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
@@ -40,18 +88,7 @@ IncomeTaxData8 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_refe
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
 
 #??toc
-
 ```
-
-
-# Tax Revenue Cyclicality
-
-## **Tax Revenue Cyclicality: The U.S. Example 1800-2020**
-
-#### By Nick Anderson
-
-#### Dated 2022.01.07
-
 
 
 ### Abstract
@@ -207,7 +244,7 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
                     guides(fill=guide_legend(title='')) +
                     theme(legend.position="right",
                           panel.grid.major = element_blank(),
-                         panel.grid.minor = element_blank(),
+                          panel.grid.minor = element_blank(),
                           panel.background = element_blank(),
                           axis.line = element_line(colour = "black"),
                           ) +

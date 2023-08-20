@@ -13,7 +13,7 @@
 
 <title>Economic History</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -353,13 +353,76 @@ div.tocify {
 </div>
 
 
+<div id="duration-and-public-finance" class="section level1">
+<h1>Duration and Public Finance</h1>
+<div id="duration-and-public-finance-in-the-united-states-2001-2023"
+class="section level2">
+<h2><strong>Duration and Public Finance in the United States,
+2001-2023</strong></h2>
+<div id="by-nick-anderson" class="section level4">
+<h4>By Nick Anderson</h4>
+</div>
+<div id="dated-2023.05.19" class="section level4">
+<h4>Dated 2023.05.19</h4>
+</div>
+<div id="introduction" class="section level3">
+<h3>1. Introduction</h3>
+<p>The United States Treasury Market is a vital funding mechanism for
+federal government expenditures and has evolved considerably and
+unpredictably over the last century. This paper focuses on two aspects:
+the debt issuance of the U.S. Federal Government and the duration of
+those securities.</p>
+<p>This story is told by the Monthly Statements of the Public Debt. The
+United States Treasury has published this on the last day of every month
+since January of 2001. The novel analysis involved in the writing of
+this paper involved calculating the bond value and duration for each
+unique CUSIP (security identification code) of federal government
+security that has been outstanding since 2001. Because the focus of this
+paper is on the impact of duration on the Treasury Market, this paper
+focuses on the only marketable fixed rate treasuries. Floating rate
+treasuries have durations that are less stable over time and in some
+cases less sensitive to interest rate changes.</p>
+<p>The paper then zooms in on three time periods with interesting debt
+dynamics: the Great Financial Crisis, the 2010’s, and the Coronavirus
+Pandemic. This is followed by the author’s conclusions.</p>
+</div>
+<div id="the-treasury-market-and-the-deficit" class="section level3">
+<h3>2. The Treasury Market and the Deficit</h3>
+<p>For the period 2019-2022, the government has borrowed an additional
+$983B to $3.1 Trillion a year in order to finance the spending
+activities of the U.S. Federal Government. Over the same period, these
+deficit amounts have amounted to between 13% and 34% of total Government
+spending. This is at a time where government spending is between 20% and
+30% of Gross Domestic Product. The deficit spending in these years was
+between 5% and 15% of Gross Domestic Product. To restate, new government
+borrowing has recently accounted for at least 5% of Gross Domestic
+Product for the past four years.</p>
+<p>This new debt has contributed for over forty years to the massive
+accumulation of the stock of Treasury debt since 1980. This existing
+debt comes with an additional obligation. In addition to the new debt
+necessary to fund the U.S. Federal Government, the United States is
+required to refinance over $1 Trillion of treasuries a month, resulting
+in a significant continuous amount of additional borrowing in the market
+for Treasuries. The United States has no choice but to refinance or
+default, implying the vital importance of the Treasury market in the
+continued functioning of the economy of the United States.</p>
+<p>Below, Figure 1 depicts the stocks outstanding of U.S. Treasuries by
+Years to Maturity with data from the Treasury and Figure 2 depicting
+aggregate treasury issuance from April 2022 to April 2023.</p>
+<pre class="r"><code>#![Figure 1](&#39;E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png&#39;)
+knitr::include_graphics(&#39;E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png&#39;)</code></pre>
+<p><img
+src="E:\Storage\Cloud%20Drive\Vide\DataScience_references\Duration%20and%20Public%20Finance\Figure%201.png" /><!-- --></p>
+</div>
+</div>
+</div>
 <div id="tax-revenue-cyclicality" class="section level1">
 <h1>Tax Revenue Cyclicality</h1>
 <div id="tax-revenue-cyclicality-the-u.s.-example-1800-2020"
 class="section level2">
 <h2><strong>Tax Revenue Cyclicality: The U.S. Example
 1800-2020</strong></h2>
-<div id="by-nick-anderson" class="section level4">
+<div id="by-nick-anderson-1" class="section level4">
 <h4>By Nick Anderson</h4>
 </div>
 <div id="dated-2022.01.07" class="section level4">
@@ -375,7 +438,7 @@ States turned to the Income Tax as its primary funding mechanism. Are
 these funding mechanisms procyclical or countercyclical? Can procyclical
 funding mechanisms reliably fund countercyclical fiscal policy?</p>
 </div>
-<div id="introduction" class="section level3">
+<div id="introduction-1" class="section level3">
 <h3>Introduction</h3>
 <p>Countercyclical fiscal policy was a cornerstone of the Keynesian
 revolution in economics. Keynes emphasized that, in economic downturns,
@@ -395,7 +458,7 @@ example of the income tax’s cyclicality occurred in the Great
 Depression. As unemployment increased to as high as 24% in 1933, U.S.
 income tax revenues fell over 60% (Figure 1). In the years of greatest
 revenue need, income tax revenues almost disappeared.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Sources: Tax Data: FILL Unemployment Data: Lebergott 1957 (he was
 with the NBER) and the BLS <a
 href="https://www.nickanderson.us/data.html">Data</a></p>
@@ -409,7 +472,7 @@ incomes) and the Unemployment Rate (as a measure of employment). The
 graph above replicated with Nominal GDP instead of the unemployment rate
 tell the similar stories from different perspectives (Figure 2). When
 aggregate demand contracts, the income tax contracts as well.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Source: FILL <a
 href="https://www.nickanderson.us/data.html">Data</a></p>
 </div>
@@ -486,7 +549,7 @@ CRS report summarized US Tax History into three phases instead of four,
 combining this paper’s two eras of Income Tax dominance into a single
 Income Tax Era.</p></li>
 </ol>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Source: FILL <a
 href="https://www.nickanderson.us/data.html">Data</a></p>
 </div>
@@ -495,21 +558,21 @@ href="https://www.nickanderson.us/data.html">Data</a></p>
 <p>This paper’s method relies on a simple decade by decade calculation
 of correlation between the measure of cyclicality (GDP or Unemployment
 Rate) and Tax Revenue by Source.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>This first Figure 4 provides a two-century overview of the U.S.
 Federal Government’s Total Receipts’ 10-Year Correlation with Nominal
 GDP. In the initial 1800-1820, Total Receipts had a negligibly or
 negatively correlated relationship with Nominal GDP. For the remainder
 of U.S. history, Total Receipts remains positively correlated with
 Nominal GDP.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Compare Figure 4 to Figure 5. The annual growth of the Unemployment
 Rate is negatively correlated with Total Receipts over the sample period
 1910-2020. Because the Unemployment Rate would increase in a downturn,
 this again is evidence that U.S. tax revenue is procyclical. Let’s
 compare these two indicators to the specific types of taxes
 observed.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>First, is the income tax correlated with GDP or changes in the
 Unemployment Rate? Figure 6 displays the negative of the Income Tax vs
 Unemployment Rate, which means that the positive displayed values are
@@ -518,7 +581,7 @@ confirms the author’s hypothesis. The Income Tax maintains a procyclical
 orientation towards Nominal GDP and Unemployment Rate. To be specific,
 the Income Tax is positively correlated with Nominal GDP and negatively
 correlated with the Unemployment Rate.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>The correlation of Social Insurance and Retirement Taxes with Nominal
 GDP and the Unemployment Rate tell a different story. When initially
 created, these Payroll taxes grew in a cyclical manner. However, since
@@ -531,7 +594,7 @@ created, these Payroll taxes grew in a cyclical manner. However, since
 the correlation disappeared in the 1960’s and 1970’s, Social Insurance
 and Retirement Taxes have not been entirely procyclical or
 countercyclical.</p>
-<p><img src="economichistory_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Finally, Customs Duties. Customs Duties are only compared to Nominal
 GDP because our Unemployment dataset does not reach before 1900. Though
 the picture is mixed before 1860, after 1880 Customs Duties remain
@@ -579,7 +642,7 @@ U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA],
 retrieved from FRED, Federal Reserve Bank of St. Louis; <a
 href="https://fred.stlouisfed.org/series/UNRATENSA"
 class="uri">https://fred.stlouisfed.org/series/UNRATENSA</a></p>
-<p>Last compiled: 2023-04-10</p>
+<p>Last compiled: 2023-08-20</p>
 <style type="text/css">
 .title {
   display: none;
