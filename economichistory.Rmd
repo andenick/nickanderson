@@ -74,7 +74,7 @@ knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_reference
 ```{r, echo = F}
 knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
 ```
-
+![Figure 3]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
 
 
 # Tax Revenue Cyclicality
