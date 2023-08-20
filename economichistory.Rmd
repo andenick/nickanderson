@@ -55,11 +55,27 @@ remove(list = ls())
 
   This new debt has contributed for over forty years to the massive accumulation of the stock of Treasury debt since 1980. This existing debt comes with an additional obligation. In addition to the new debt necessary to fund the U.S. Federal Government, the United States is required to refinance over $1 Trillion of treasuries a month, resulting in a significant continuous amount of additional borrowing in the market for Treasuries. The United States has no choice but to refinance or default, implying the vital importance of the Treasury market in the continued functioning of the economy of the United States.
 
-  Below, Figure 1 depicts the stocks outstanding of U.S. Treasuries by Years to Maturity with data from the Treasury and Figure 2 depicting aggregate treasury issuance from April 2022 to April 2023.
+  Below, **Figure 1** depicts the stocks outstanding of U.S. Treasuries by Years to Maturity with data from the Treasury and **Figure 2** depicting aggregate treasury issuance from April 2022 to April 2023.
+
+#### **Figure 1**
 
 ```{r, include = F, echo = F}
 #![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
 knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+```
+
+#### **Figure 2**
+
+```{r, include = F, echo = F}
+#![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
+```
+
+#### **Figure 3**
+
+```{r, include = F, echo = F}
+#![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
 ```
 
 
