@@ -59,22 +59,19 @@ remove(list = ls())
 
 #### **Figure 1**
 
-```{r, include = F, echo = F}
-#![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+```{r, echo = F}
 knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
 ```
 
 #### **Figure 2**
 
-```{r, include = F, echo = F}
-#![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+```{r, echo = F}
 knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
 ```
 
 #### **Figure 3**
 
-```{r, include = F, echo = F}
-#![Figure 1]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+```{r, echo = F}
 knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
 ```
 
