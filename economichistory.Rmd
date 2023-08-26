@@ -84,7 +84,7 @@ ggOutstandingEnd <- ggplot(looptest_graph) +
                     )
 
 #ggplotly(ggOutstanding)
-ggOutstandingEnd
+
 
 ggDurApproxPct <- ggplot(looptest_graph) +
                     geom_bar(aes(x = recDate, y = durApproxPct, fill = as.factor(secDesc1)), 
@@ -143,15 +143,16 @@ panel.grid.major = element_line(color = "lightgray"),
 panel.grid.minor = element_blank(),
 legend.position = "bottom"
 )
-  
-ggDurApproxPct
-ggDurApproxUSD
-ggDurApproxUSD2
+
+#ggOutstandingEnd
+#ggDurApproxPct
+#ggDurApproxUSD
+#ggDurApproxUSD2
 #ggDurApproxUSD3
 
 ```
 
-```{r}
+```{r, echo = F}
 #i'm going to change categories now we will use YearsCat so that we can get a more precise picture of the debt load of the united states
 
 
@@ -246,16 +247,67 @@ legend.position = "right")
 
 
 
-ggOutstandingEnd2
-ggOutstandingEnd3
-ggDurApproxUSD4
-ggDurApproxUSD5
+
+
+
+
 
 
 
 ```
 
 
+```{r, echo = F}
+ggOutstandingEnd2
+```
+
+#### **Figure 2**
+
+```{r, echo = F}
+
+```
+
+#### **Figure 3**
+
+```{r, echo = F}
+ggOutstandingEnd3
+```
+
+#### **Figure 4**
+
+```{r, echo = F}
+
+```
+
+#### **Figure 5**
+
+```{r, echo = F}
+
+```
+
+#### **Figure 6**
+
+```{r, echo = F}
+
+```
+
+#### **Figure 7**
+
+```{r, echo = F}
+ggDurApproxUSD4
+```
+
+#### **Figure 8**
+
+```{r, echo = F}
+ggDurApproxUSD5
+```
+
+#### **Figure 9**
+
+```{r, echo = F}
+
+```
 
 
 
@@ -263,18 +315,9 @@ ggDurApproxUSD5
 #setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
 #knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
 #knitr::include_graphics('Figure 1.png')
-```
 
-#### **Figure 2**
-
-```{r, echo = F}
 #knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
 
-```
-
-#### **Figure 3**
-
-```{r, echo = F}
 #knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
 
 #![Figure 3]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
