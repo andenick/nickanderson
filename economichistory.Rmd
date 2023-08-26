@@ -60,15 +60,215 @@ remove(list = ls())
 #### **Figure 1**
 
 ```{r, echo = F}
-setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
-knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
-knitr::include_graphics('Figure 1.png')
+
+#write_xlsx(looptest_graph,"E:\\Storage\\Cloud Drive\\Vide\\DataScience\\DaPF\\looptest-graph1.xlsx")
+looptest_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\looptest-graph1.xlsx")
+
+ggOutstandingEnd <- ggplot(looptest_graph) +
+                    geom_bar(aes(x = recDate, y = outsAmtMln/1000000, fill = as.factor(secDesc1)), 
+                    position = "stack", stat = "identity") +
+                    ggtitle("Outstanding securities by type in Trillions") +
+                    ylab("Trillions of Dollars") +
+                    xlab("Record Date") +
+                    scale_fill_discrete("Type of Security") +
+                    theme_bw() +
+                    theme(
+                    title = element_text(size = 10, face = "bold"),
+                    axis.title = element_text(size = 16),
+                    axis.text = element_text(size = 14),
+                    legend.title = element_text(size = 16),
+                    legend.text = element_text(size = 14),
+                    panel.grid.major = element_line(color = "lightgray"),
+                    panel.grid.minor = element_blank(),
+                    legend.position = "bottom"
+                    )
+
+#ggplotly(ggOutstanding)
+ggOutstandingEnd
+
+ggDurApproxPct <- ggplot(looptest_graph) +
+                    geom_bar(aes(x = recDate, y = durApproxPct, fill = as.factor(secDesc1)), 
+                    position = "stack", stat = "identity") +
+                    ggtitle("Duration Approximation - % change in price DV01") +
+                    ylab("Billions of Dollars") +
+                    xlab("Record Date") +
+                    scale_fill_discrete("Type of Security")
+
+ggDurApproxUSD <- ggplot(looptest_graph) +
+                    geom_bar(aes(x = recDate, y = durApproxInUSD/1000, fill = as.factor(secDesc1)), 
+                    position = "stack", stat = "identity") +
+                    ggtitle("Duration Approximation - $B change in Market Value for 
+                            a .01% Increase in Interest Rates") + 
+                    ylab("Billions of Dollars") +
+                    xlab("Record Date") +
+                    scale_fill_discrete(name = "Type of Security")
+
+ggDurApproxUSD2 <- ggplot(looptest_graph) +
+geom_bar(aes(x = recDate, y = durApproxInUSD/1000, fill = as.factor(secDesc1)),
+position = "stack", stat = "identity") +
+ggtitle("$B change in Market Value 
+        for a .01% Increase in Interest Rates
+        (Macaulay Duration Approximation)") +
+ylab("Billions of Dollars") +
+xlab("Record Date") +
+scale_fill_discrete(name = "Type of Security") +
+theme_bw() +
+theme(
+title = element_text(size = 10, face = "bold"),
+axis.title = element_text(size = 16),
+axis.text = element_text(size = 14),
+legend.title = element_text(size = 16),
+legend.text = element_text(size = 14),
+panel.grid.major = element_line(color = "lightgray"),
+panel.grid.minor = element_blank()
+)
+
+ggDurApproxUSD3 <- ggplot(looptest_graph) +
+geom_bar(aes(x = as.numeric(year(recDate)), y = durApproxInUSD/1000, fill = as.factor(secDesc1)),
+position = "stack", stat = "identity") +
+ggtitle("$B change in Market Value of all Outstanding Treasuries
+        for a .01% Increase in Interest Rates
+        (Macaulay Duration Approximation)") +
+ylab("Billions of Dollars") +
+xlab("Record Date") +
+scale_fill_discrete(name = "Type of Security") +
+theme_bw() +
+theme(
+title = element_text(size = 10, face = "bold"),
+axis.title = element_text(size = 16),
+axis.text = element_text(size = 14),
+legend.title = element_text(size = 16),
+legend.text = element_text(size = 14),
+panel.grid.major = element_line(color = "lightgray"),
+panel.grid.minor = element_blank(),
+legend.position = "bottom"
+)
+  
+ggDurApproxPct
+ggDurApproxUSD
+ggDurApproxUSD2
+ggDurApproxUSD3
+
+```
+
+```{r}
+#i'm going to change categories now we will use YearsCat so that we can get a more precise picture of the debt load of the united states
+
+
+looptest_graph$yearsCat <- factor(looptest_graph$yearsCat, ordered = FALSE)
+looptest_graph$yearsCat <- relevel(looptest_graph$yearsCat,c("less than a year"))
+
+
+ggDurApproxUSD4 <- ggplot(looptest_graph) +
+geom_bar(aes(x = recDate, y = -durApproxInUSD/1000, fill = factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
+position = "stack", stat = "identity") +
+ggtitle("$B change in Market Value of all Outstanding Treasuries
+        for a .01% Decrease in Interest Rates
+        (Macaulay Duration Approximation)
+        (Only Marketable, Fixed Rate)") +
+ylab("Billions of Dollars") +
+xlab("Record Date") +
+guides(fill = guide_legend(title = "Years to Maturity")) +
+scale_fill_brewer(palette = "Dark2") +
+theme_bw() +
+theme(
+title = element_text(size = 10, face = "bold"),
+axis.title = element_text(size = 14),
+axis.text = element_text(size = 14),
+legend.title = element_text(size = 14),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "lightgray"),
+panel.grid.minor = element_blank(),
+legend.position = "right")
+
+ggDurApproxUSD5 <- ggplot(looptest_graph) +
+geom_bar(aes(x = recDate, y = durApproxInUSD/sumDur, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
+position = "stack", stat = "identity") +
+ggtitle("% of Total Change in Market Value of all Outstanding Treasuries
+        for a .01% Decrease in Interest Rates
+        (Only Marketable, Fixed Rate)") +
+ylab("Percentage") +
+xlab("Record Date") +
+guides(fill = guide_legend(title = "Years to Maturity")) +
+scale_fill_brewer(palette = "Dark2") +
+theme_bw() +
+theme(
+title = element_text(size = 10, face = "bold"),
+axis.title = element_text(size = 14),
+axis.text = element_text(size = 14),
+legend.title = element_text(size = 14),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "lightgray"),
+panel.grid.minor = element_blank(),
+legend.position = "right")
+
+#now let's revisit the outstanding graphs
+
+ggOutstandingEnd2 <- ggplot(looptest_graph) +
+                    geom_bar(aes(x = recDate, y = outsAmtMln/1000000, fill =  factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))), 
+                    position = "stack", stat = "identity") +
+                    ggtitle("Outstanding Treasuries in Trillions of $
+                            (Only Marketable, Fixed Rate)") +
+                    ylab("Trillions of Dollars") +
+                    xlab("Record Date") +
+                    guides(fill = guide_legend(title = "Years to Maturity")) +
+scale_fill_brewer(palette = "Dark2") +
+theme_bw() +
+theme(
+title = element_text(size = 10, face = "bold"),
+axis.title = element_text(size = 14),
+axis.text = element_text(size = 14),
+legend.title = element_text(size = 14),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "lightgray"),
+panel.grid.minor = element_blank(),
+legend.position = "right")
+
+ggOutstandingEnd3 <- ggplot(looptest_graph) +
+geom_bar(aes(x = recDate, y = outsAmtMln/sumOuts, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
+position = "stack", stat = "identity") +
+ggtitle("Outstanding Treasuries as a % of Total Outstanding Treasuries
+(Only Marketable, Fixed Rate)") +
+ylab("Percentage") +
+xlab("Record Date") +
+guides(fill = guide_legend(title = "Years to Maturity")) +
+scale_fill_brewer(palette = "Dark2") +
+theme_bw() +
+theme(
+title = element_text(size = 10, face = "bold"),
+axis.title = element_text(size = 14),
+axis.text = element_text(size = 14),
+legend.title = element_text(size = 14),
+legend.text = element_text(size = 12),
+panel.grid.major = element_line(color = "lightgray"),
+panel.grid.minor = element_blank(),
+legend.position = "right")
+
+
+
+ggOutstandingEnd2
+ggOutstandingEnd3
+ggDurApproxUSD4
+ggDurApproxUSD5
+
+
+
+```
+```
+
+
+
+
+```{r, echo = F}
+#setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
+#knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+#knitr::include_graphics('Figure 1.png')
 ```
 
 #### **Figure 2**
 
 ```{r, echo = F}
-knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
+#knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
 
 ```
 
