@@ -700,7 +700,7 @@ ggDurApproxUSD5
 
 Now that we have surveyed the entire dataset available for the outstanding debt of the U.S. Federal Government, we will inspect a few time periods more closely below.
 
-### 5. Study 1 – the Treasury Stock during the Great Financial Crisis
+**5. Study 1 – the Treasury Stock during the Great Financial Crisis**
 
 #### **Figure 9**
 
