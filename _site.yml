@@ -2,7 +2,7 @@ name: "Nick Anderson"
 navbar:
   title: "Nick Anderson"
   left:
-    - text: "Home"
+    - text: "Home & General"
       href: index.html
     - text: "Economic History"
       href: economichistory.html

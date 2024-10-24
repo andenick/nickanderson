@@ -4,7 +4,7 @@ output: html_document
 theme: null
 ---
 
-# **Website for Nick Anderson, Student**
+# **Welcome, here are some projects of mine**
 
 This site is relatively new. The only pages that are populated as of the writing of this message are Economic History and Data. My only papers are on the Economic History page. 
 
