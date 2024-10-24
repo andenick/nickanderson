@@ -3,9 +3,7 @@ title: "Contact"
 output: html_document
 ---
 
-Google Form? idk
-
-
+nickawebbox@gmail.com
 
 
 
