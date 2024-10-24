@@ -6,8 +6,6 @@ navbar:
       href: index.html
     - text: "Economic History"
       href: economichistory.html
-    # - text: "Investing"
-    #   href: investing.html
     - text: "Data"
       href: data.html
     - text: "About"
