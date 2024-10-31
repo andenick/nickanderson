@@ -1,0 +1,512 @@
+breaks=seq(min(IncomeTaxData4$date),max(IncomeTaxData4$date),by=20),
+) +
+scale_fill_manual(values=c("#640000")) +
+ggtitle("Figure 4: Correlation by decade of % growth of Total Receipts and
+Nominal GDP, 1800-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation1
+ggCorrelation2 <- ggplot(IncomeTaxData5,aes(x=date,y=value)) +
+geom_line(size = 2, color = "#640000") +
+guides(fill=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData5$date),max(IncomeTaxData5$date),by=10),
+) +
+scale_fill_manual(values=c("#640000")) +
+ggtitle("Figure 5: Correlation by decade of % growth of Total Receipts and
+Unemployment, 1900-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation2
+ggCorrelation3 <- ggplot(IncomeTaxData6,aes(x=date,y=value,colour=type)) +
+geom_line(size = 2) +
+guides(colour=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData6$date),max(IncomeTaxData6$date),by=10),
+) +
+scale_color_manual(values=c("#640000","#00B0F0")) +
+ggtitle("Figure 6: Correlation by decade of % growth of Income Tax vs
+Nominal GDP & (-) Unemployment, 1930-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation3
+ggCorrelation4 <- ggplot(IncomeTaxData7,aes(x=date,y=value,colour=type)) +
+geom_line(size = 2) +
+guides(colour=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData7$date),max(IncomeTaxData7$date),by=10),
+) +
+scale_color_manual(values=c("#640000","#00B0F0")) +
+ggtitle("Figure 7: Correlation by decade of % growth of Social Insurance and
+Retirement Tax vs Nominal GDP & (-) Unemployment, 1950-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation4
+ggCorrelation5 <- ggplot(IncomeTaxData7,aes(x=date,y=value)) +
+geom_line(size = 2) +
+guides(colour=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData7$date),max(IncomeTaxData7$date),by=10),
+) +
+scale_color_manual(values=c("#640000")) +
+ggtitle("Figure 7: Correlation by decade of % growth of Social Insurance and
+Retirement Tax vs Nominal GDP & (-) Unemployment, 1950-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+View(IncomeTaxData7)
+View(IncomeTaxData6)
+View(IncomeTaxData7)
+ggCorrelation5 <- ggplot(IncomeTaxData7,aes(x=date,y=value,colour=type)) +
+geom_line(size = 2) +
+guides(colour=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData7$date),max(IncomeTaxData7$date),by=10),
+) +
+scale_color_manual(values=c("#640000","#00B0F0")) +
+ggtitle("Figure 7: Correlation by decade of % growth of Social Insurance and
+Retirement Tax vs Nominal GDP & (-) Unemployment, 1950-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
+geom_line(size = 2) +
+guides(colour=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData7$date),max(IncomeTaxData7$date),by=10),
+) +
+scale_color_manual(values=c("#640000")) +
+ggtitle("Figure 7: Correlation by decade of % growth of Social Insurance and
+Retirement Tax vs Nominal GDP & (-) Unemployment, 1950-2020") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
+geom_line(size = 2) +
+guides(colour=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData8$date),max(IncomeTaxData8$date),by=10),
+) +
+scale_color_manual(values=c("#640000")) +
+ggtitle("Figure 8: Correlation by decade of % growth of Customs Duties vs
+Nominal GDP, 1810-1940") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
+geom_line(size = 2) +
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData8$date),max(IncomeTaxData8$date),by=10),
+) +
+scale_color_manual(values=c("#640000")) +
+ggtitle("Figure 8: Correlation by decade of % growth of Customs Duties vs
+Nominal GDP, 1810-1940") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
+geom_line(size = 2) +
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData8$date),max(IncomeTaxData8$date),by=10),
+) +
+scale_color_manual(values=c("#640000")) +
+ggtitle("Figure 8: Correlation by decade of % growth of Customs Duties vs
+Nominal GDP, 1810-1940") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
+geom_line(size = 2,color='#640000') +
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData8$date),max(IncomeTaxData8$date),by=10),
+) +
+ggtitle("Figure 8: Correlation by decade of % growth of Customs Duties vs
+Nominal GDP, 1810-1940") +
+geom_hline(yintercept=0, size = 1)
+ggCorrelation5
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+ggCorrelation2 <- ggplot(IncomeTaxData5,aes(x=date,y=value)) +
+geom_line(size = 2, color = "#640000") +
+guides(fill=guide_legend(title=''))+
+theme(legend.position="bottom",
+panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(),
+panel.background = element_blank(),
+axis.line = element_line(colour = "black"),
+) +
+scale_y_continuous(name="% Correlation",
+breaks=seq(from=-1,to=1,by=.1),
+labels=scales::label_percent()) +
+scale_x_continuous(name="Years",
+breaks=seq(min(IncomeTaxData5$date),max(IncomeTaxData5$date),by=10),
+) +
+scale_fill_manual(values=c("#640000")) +
+ggtitle("Figure 5: Correlation by decade of % growth of Total Receipts and
+Unemployment, 1900-2020") +
+geom_hline(yintercept=0, size = 1)
+knitr::opts_chunk$set(echo = TRUE)
+mspd1 <- ustfd_simple('/v1/accounting/mts/mts_table_3',
+fields = c('record_date',
+'current_month_rcpt_outly_amt'),
+filter = list(
+record_date = c('<=' = enddate1),
+record_date = c('>=' = begindate1)
+),
+page_size=pagesize
+)
+install.packages("tidyverse")
+install.packages("tidyverse")
+install.packages("tidyquant")
+install.packages("ustfd")
+install.packages("plotly")
+library(tidyverse)
+library(tidyquant)
+library(ustfd)
+library(plotly)
+library(plotly)
+rm(list = ls())
+begindate1 <- '2001-01-31'
+enddate1 <- '2020-01-01'
+pagesize <- 1000
+fdendpoints <- ustfd_endpoints()
+ustfd_field_dictionary('/v1/accounting/mts/mts_table_1')
+mspd <- ustfd_simple('/v1/accounting/mts/mts_table_1',
+fields = c('record_date',
+'current_month_gross_rcpt_amt',
+'current_month_gross_outly_amt',
+'current_month_dfct_sur_amt',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd <- mspd$data
+ggmspd1 <- ggplot(mspd, aes(x=record_date)) +
+geom_line(aes(y=current_month_gross_rcpt_amt/1000000000000), color='blue') +
+geom_line(aes(y=current_month_gross_outly_amt/1000000000000), color='red') +
+geom_line(aes(y=current_month_dfct_sur_amt/1000000000000), color='black') +
+ggtitle("Monthly Receipts and Outlays") +
+ylab("Billions of Dollars)") +
+scale_y_continuous(labels = scales::dollar, n.breaks = 10)
+ggplotly(ggmspd1)
+??ustfd
+?ustfd_simple()
+begindate1 <- '2001-01-31'
+enddate1 <- '2020-01-01'
+pagesize <- 2000
+fdendpoints <- ustfd_endpoints()
+ustfd_field_dictionary('/v1/accounting/mts/mts_table_1')
+mspd <- ustfd_simple('/v1/accounting/mts/mts_table_1',
+fields = c('record_date',
+'current_month_gross_rcpt_amt',
+'current_month_gross_outly_amt',
+'current_month_dfct_sur_amt',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd <- mspd$data
+ggmspd1 <- ggplot(mspd, aes(x=record_date)) +
+geom_line(aes(y=current_month_gross_rcpt_amt/1000000000000), color='blue') +
+geom_line(aes(y=current_month_gross_outly_amt/1000000000000), color='red') +
+geom_line(aes(y=current_month_dfct_sur_amt/1000000000000), color='black') +
+ggtitle("Monthly Receipts and Outlays") +
+ylab("Billions of Dollars)") +
+scale_y_continuous(labels = scales::dollar, n.breaks = 10)
+ggplotly(ggmspd1)
+write.csv(mspd,file='mspd1.csv')
+?scale_y_continuous
+fdendpoints <- ustfd_endpoints()
+View(fdendpoints)
+ustfd_field_dictionary('/v1/accounting/mts/mts_table_3')
+ustfd_field_dictionary('/v1/accounting/mts/mspd_table_3')
+mspd <- ustfd_simple('/v1/accounting/mts/mts_table_1',
+fields = c('record_date',
+'current_month_gross_rcpt_amt',
+'current_month_gross_outly_amt',
+'current_month_dfct_sur_amt',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+ustfd_field_dictionary('/v1/accounting/mts/mspd_table_3')
+fdendpoints <- ustfd_endpoints()
+View(fdendpoints)
+ustfd_field_dictionary('/v1/debt/mspd/mspd_table_3')
+mspd3 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = c('record_date',
+'current_month_gross_rcpt_amt',
+'current_month_gross_outly_amt',
+'current_month_dfct_sur_amt',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd <- mspd$data
+ggmspd1 <- ggplot(mspd, aes(x=record_date)) +
+geom_line(aes(y=current_month_gross_rcpt_amt/1000000000000), color='blue') +
+geom_line(aes(y=current_month_gross_outly_amt/1000000000000), color='red') +
+geom_line(aes(y=current_month_dfct_sur_amt/1000000000000), color='black') +
+ggtitle("Monthly Receipts and Outlays") +
+ylab("Billions of Dollars)") +
+scale_y_continuous(labels = scales::dollar, n.breaks = 10)
+ggplotly(ggmspd1)
+ustfd_field_dictionary('/v1/debt/mspd/mspd_table_3')
+ustfd_field_dictionary('/v1/debt/mspd/mspd_table_3')
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = c('record_date',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month',
+'issued_amt'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+ustfd_field_dictionary('/v1/debt/mspd/mspd_table_3')
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = c('record_date',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month',
+'issued_amt',
+'security_type_desc'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = c('record_date',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month',
+'security_type_desc'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = c('record_date',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month',
+'security_type_desc'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd2 <- mspd$data
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = c('record_date',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month',
+'security_type_desc'),
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd2 <- mspd2$data
+ggmspd2 <- ggplot(mspd2, aes(x=record_date)) +
+geom_line(aes(y=current_month_gross_rcpt_amt/1000000000000), color='blue') +
+geom_line(aes(y=current_month_gross_outly_amt/1000000000000), color='red') +
+geom_line(aes(y=current_month_dfct_sur_amt/1000000000000), color='black') +
+ggtitle("Monthly Receipts and Outlays") +
+ylab("Billions of Dollars)") +
+scale_y_continuous(labels = scales::dollar, n.breaks = 10)
+ggplotly(ggmspd2)
+begindate1 <- '2001-01-31'
+enddate1 <- '2020-01-01'
+pagesize <- 2000
+fdendpoints <- ustfd_endpoints()
+ustfd_field_dictionary('/v1/accounting/mts/mts_table_1')
+mtslist <- c('record_date',
+'current_month_gross_rcpt_amt',
+'current_month_gross_outly_amt',
+'current_month_dfct_sur_amt',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month')
+mts1 <- ustfd_simple('/v1/accounting/mts/mts_table_1',
+fields = mtslist,
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mts1 <- mts1$data
+ggmts1 <- ggplot(mts1, aes(x=record_date)) +
+geom_line(aes(y=current_month_gross_rcpt_amt/1000000000000), color='blue') +
+geom_line(aes(y=current_month_gross_outly_amt/1000000000000), color='red') +
+geom_line(aes(y=current_month_dfct_sur_amt/1000000000000), color='black') +
+ggtitle("Monthly Receipts and Outlays") +
+ylab("Billions of Dollars)") +
+scale_y_continuous(labels = scales::dollar, n.breaks = 10)
+ggplotly(ggmts1)
+write.csv(mts1,file='mts1.csv')
+mspd2list <- c('record_date',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month',
+'security_type_desc',
+'issued_amt')
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = mspd2list,
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mspd2 <- ustfd_simple('/v1/debt/mspd/mspd_table_3',
+fields = mspd2list,
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+#??ustfd
+?ustfd_simple()
+#??ustfd
+?ustfd_simple()
+begindate1 <- '2001-01-31'
+enddate1 <- '2020-01-01'
+pagesize <- 2000
+fdendpoints <- ustfd_endpoints()
+ustfd_field_dictionary('/v1/accounting/mts/mts_table_1')
+mts1list <- c('record_date',
+'current_month_gross_rcpt_amt',
+'current_month_gross_outly_amt',
+'current_month_dfct_sur_amt',
+'record_fiscal_year',
+'record_fiscal_quarter',
+'record_calendar_year',
+'record_calendar_month')
+mts1 <- ustfd_simple('/v1/accounting/mts/mts_table_1',
+fields = mts1list,
+filter = list(
+record_date = c('<=' = enddate1)
+),
+page_size = pagesize
+)
+mts1 <- mts1$data
+ggmts1 <- ggplot(mts1, aes(x=record_date)) +
+geom_line(aes(y=current_month_gross_rcpt_amt/1000000000000), color='blue') +
+geom_line(aes(y=current_month_gross_outly_amt/1000000000000), color='red') +
+geom_line(aes(y=current_month_dfct_sur_amt/1000000000000), color='black') +
+ggtitle("Monthly Receipts and Outlays") +
+ylab("Billions of Dollars)") +
+scale_y_continuous(labels = scales::dollar, n.breaks = 10)
+ggplotly(ggmts1)
+write.csv(mts1,file='mts1.csv')
+?scale_y_continuous

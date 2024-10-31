@@ -1,0 +1,6 @@
+"0",""
+"0","#write_xlsx(looptest_graph,""E:\\Storage\\Cloud Drive\\Vide\\DataScience\\DaPF\\looptest-graph1.xlsx"")"
+"0","looptest_graph <- read_excel(""E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\looptest-graph1.xlsx"")"
+"2","Error in read_excel(""E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\looptest-graph1.xlsx"") : 
+  could not find function ""read_excel""
+"
